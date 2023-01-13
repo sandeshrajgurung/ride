@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:sahara/pages/screens/dashboard.dart';
 import 'package:sahara/pages/screens/forgot_password.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -12,16 +13,13 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   late bool _passwordVisible;
 
-  // String _password;
-
   final GlobalKey<FormState> _formKey = GlobalKey();
 
   void _saveForm() {
     final bool isValid = _formKey.currentState!.validate();
     if (isValid) {
-      if (kDebugMode) {
-        print('Got a valid input');
-      }
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => Dashboard()));
     }
   }
 
@@ -159,7 +157,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
+                        borderRadius: BorderRadius.circular(7),
                       ),
                       backgroundColor: Theme.of(context).primaryColor,
                     ),

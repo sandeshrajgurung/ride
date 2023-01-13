@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:sahara/pages/screens/login_screen.dart';
 
@@ -15,7 +14,8 @@ class _SignupScreenState extends State<SignupScreen> {
   void _saveForm() {
     final bool isValid = _formKey.currentState!.validate();
     if (isValid) {
-      Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen()));
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => LoginScreen()));
     }
   }
 
@@ -35,7 +35,8 @@ class _SignupScreenState extends State<SignupScreen> {
                   text: TextSpan(
                     text: 'Namaste\n',
                     style: TextStyle(
-                        color: Theme.of(context).textTheme.headlineMedium!.color,
+                        color:
+                            Theme.of(context).textTheme.headlineMedium!.color,
                         fontSize: 24,
                         fontWeight: FontWeight.bold),
                     children: <TextSpan>[
@@ -62,7 +63,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       if (value != null && value.trim().length < 10) {
                         return 'Enter a valid 10 digit phone number';
                       }
-      
+
                       return null;
                     },
                     // style: TextStyle(fontSize: 10),
@@ -70,8 +71,10 @@ class _SignupScreenState extends State<SignupScreen> {
                         contentPadding: EdgeInsets.all(17),
                         labelText: 'Phone Number',
                         labelStyle: TextStyle(
-                            color:
-                                Theme.of(context).textTheme.headlineSmall!.color,
+                            color: Theme.of(context)
+                                .textTheme
+                                .headlineSmall!
+                                .color,
                             fontSize: 14),
                         focusedBorder: OutlineInputBorder(
                           borderSide:
@@ -81,7 +84,8 @@ class _SignupScreenState extends State<SignupScreen> {
                             borderSide: BorderSide(
                                 color: Theme.of(context).primaryColor)),
                         errorBorder: const OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.red, width: 5))),
+                            borderSide:
+                                BorderSide(color: Colors.red, width: 5))),
                   ),
                 ),
                 const SizedBox(
@@ -93,7 +97,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
+                        borderRadius: BorderRadius.circular(7),
                       ),
                       backgroundColor: Theme.of(context).primaryColor,
                     ),
@@ -110,7 +114,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   child: ElevatedButton.icon(
                     style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
+                        borderRadius: BorderRadius.circular(7),
                       ),
                       backgroundColor: Color(0xFF1877F2),
                     ),
