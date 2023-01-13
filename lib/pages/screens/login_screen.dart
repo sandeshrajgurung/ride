@@ -105,7 +105,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         )),
                         errorBorder: const OutlineInputBorder(
                             borderSide:
-                                BorderSide(color: Colors.red, width: 5))),
+                                BorderSide(color: Colors.red, width: 2))),
                   ),
                 ),
                 const SizedBox(
