@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sahara/pages/widgets/carousel_slider.dart';
 import 'package:sahara/pages/widgets/services.dart';
 
 class Dashboard extends StatefulWidget {
@@ -49,13 +50,12 @@ class _DashboardState extends State<Dashboard> {
                     borderRadius: BorderRadius.circular(15),
                     color: Colors.red,
                   ),
-                  height: 95,
+                  height: 90,
                   width: double.infinity,
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                  padding: const EdgeInsets.all(15.0),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Container(
                         height: 60,
@@ -71,7 +71,7 @@ class _DashboardState extends State<Dashboard> {
                               color: Colors.green,
                               size: 32,
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 6,
                             ),
                             Column(
@@ -81,12 +81,14 @@ class _DashboardState extends State<Dashboard> {
                                 Text(
                                   "NPR.0.00",
                                   style: TextStyle(
+                                      fontFamily: 'Biotif',
                                       color: Colors.green,
                                       fontWeight: FontWeight.bold),
                                 ),
                                 Text(
                                   "SaharaWallet",
                                   style: TextStyle(
+                                      fontFamily: 'Biotif',
                                       fontSize: 12,
                                       fontWeight: FontWeight.bold),
                                 ),
@@ -95,28 +97,34 @@ class _DashboardState extends State<Dashboard> {
                           ],
                         ),
                       ),
+                      const SizedBox(
+                        width: 10,
+                      ),
                       Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Padding(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 15.0, vertical: 35),
-                            child: RichText(
-                              text: const TextSpan(
-                                text: 'Hello,\n',
-                                children: <TextSpan>[
-                                  TextSpan(
-                                      text: 'Sandesh Grg',
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.bold)),
-                                ],
+                          RichText(
+                            text: const TextSpan(
+                              text: 'Hello,\n',
+                              style: TextStyle(
+                                fontSize: 12,
+                                fontFamily: 'Biotif',
                               ),
+                              children: <TextSpan>[
+                                TextSpan(
+                                    text: 'Sandesh Grg',
+                                    style: TextStyle(
+                                      fontSize: 15,
+                                      fontFamily: 'Biotif',
+                                    )),
+                              ],
                             ),
-                          )
+                          ),
                         ],
                       ),
                     ],
                   ),
-                )
+                ),
               ]),
             ),
           ),
@@ -162,14 +170,14 @@ class _DashboardState extends State<Dashboard> {
                       )
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 15,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       SaharaServices(
-                        text: Text(
+                        text: const Text(
                           'Bus',
                           style: TextStyle(fontFamily: 'Biotif'),
                         ),
@@ -182,7 +190,7 @@ class _DashboardState extends State<Dashboard> {
                         },
                       ),
                       SaharaServices(
-                        text: Text(
+                        text: const Text(
                           'Food',
                           style: TextStyle(fontFamily: 'Biotif'),
                         ),
@@ -192,6 +200,95 @@ class _DashboardState extends State<Dashboard> {
                         },
                       )
                     ],
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  const Text(
+                    "Where do you want to go?",
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontFamily: 'Biotif',
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  //search bar
+                  TextFormField(
+                    readOnly: true,
+                    decoration: InputDecoration(
+                      prefixIcon: Icon(Icons.location_on_sharp),
+                      suffixIcon: Icon(
+                        Icons.search_outlined,
+                        color: Colors.grey,
+                      ),
+                      contentPadding: EdgeInsets.all(15),
+                      hintText: "Search Destination",
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(7.0),
+                        borderSide: const BorderSide(
+                          width: 2.0,
+                          color: Colors.grey,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 25,
+                  ),
+                  //whats trending?
+                  const Text(
+                    "What's Trending",
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontFamily: 'Biotif',
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  Container(
+                    height: 150,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5),
+                        image: DecorationImage(
+                            fit: BoxFit.fill,
+                            image: NetworkImage(
+                                'http://api.sahararide.com/media/image/blogs/Screen_Shot_2022-12-07_at_15.53.43.png'))),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  //Featured Restaurant
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Featured Restaurants",
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontFamily: 'Biotif',
+                        ),
+                      ),
+                      Text(
+                        "All",
+                        style: TextStyle(
+                          color: Theme.of(context).primaryColor,
+                          fontSize: 18,
+                          fontFamily: 'Biotif',
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  //carousel
+                  Container(
+                    height: 200,
+                    color: Colors.grey,
                   ),
                 ],
               ),

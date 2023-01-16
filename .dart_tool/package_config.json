@@ -14,6 +14,12 @@
       "languageVersion": "2.17"
     },
     {
+      "name": "carousel_slider",
+      "rootUri": "file:///C:/Users/sande/AppData/Local/Pub/Cache/hosted/pub.dev/carousel_slider-4.2.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "characters",
       "rootUri": "file:///C:/Users/sande/AppData/Local/Pub/Cache/hosted/pub.dev/characters-1.2.1",
       "packageUri": "lib/",
@@ -152,7 +158,7 @@
       "languageVersion": "2.19"
     }
   ],
-  "generated": "2023-01-13T11:20:32.561454Z",
+  "generated": "2023-01-15T13:54:57.768093Z",
   "generator": "pub",
   "generatorVersion": "2.19.0-444.3.beta"
 }
