@@ -65,6 +65,7 @@ flutter:
     - lib/assets/sahara-cab.png
     - lib/assets/sahara-bus.png
     - lib/assets/sahara-food.png
+    - lib/assets/sahara-logo.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -82,7 +83,6 @@ flutter:
     - family: Biotif
       fonts:
         - asset: lib/fonts/Biotif-Bold.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
   #     fonts:

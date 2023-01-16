@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:sahara/pages/screens/dashboard.dart';
+import 'package:sahara/pages/bottom_navigation/home_screen.dart';
+import 'package:sahara/pages/bottom_navigation/main_page.dart';
 import 'package:sahara/pages/screens/forgot_password.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -19,7 +20,7 @@ class _LoginScreenState extends State<LoginScreen> {
     final bool isValid = _formKey.currentState!.validate();
     if (isValid) {
       Navigator.push(
-          context, MaterialPageRoute(builder: (context) => Dashboard()));
+          context, MaterialPageRoute(builder: (context) => MainPage()));
     }
   }
 
