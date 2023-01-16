@@ -31,6 +31,13 @@ class _SignupScreenState extends State<SignupScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                Container(
+                  child: Image.asset(
+                    'lib/assets/sahara-logo.png',
+                    height: 170,
+                    width: 200,
+                  ),
+                ),
                 RichText(
                   text: TextSpan(
                     text: 'Namaste\n',

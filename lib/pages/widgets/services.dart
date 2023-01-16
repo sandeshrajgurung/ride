@@ -16,8 +16,8 @@ class SaharaServices extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: 145,
-        height: 100,
+        width: 150,
+        height: 95,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
             color: Colors.white,

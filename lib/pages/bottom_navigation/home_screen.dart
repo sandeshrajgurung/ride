@@ -211,25 +211,68 @@ class _HomeScreenState extends State<HomeScreen> {
                     height: 15,
                   ),
                   //search bar
-                  TextFormField(
-                    readOnly: true,
-                    decoration: InputDecoration(
-                      prefixIcon: Icon(Icons.location_on_sharp),
-                      suffixIcon: Icon(
-                        Icons.search_outlined,
-                        color: Colors.grey,
-                      ),
-                      contentPadding: EdgeInsets.all(15),
-                      hintText: "Search Destination",
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(7.0),
-                        borderSide: const BorderSide(
-                          width: 2.0,
-                          color: Colors.grey,
-                        ),
+                  GestureDetector(
+                    onTap: () {},
+                    child: Container(
+                      padding: EdgeInsets.all(10),
+                      height: 50,
+                      decoration: BoxDecoration(
+                          border: Border.all(width: 2, color: Colors.black45),
+                          borderRadius: BorderRadius.circular(5)),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            children: [
+                              Container(
+                                height: 20,
+                                width: 20,
+                                child: Icon(
+                                  Icons.location_on_sharp,
+                                  size: 16,
+                                  color: Colors.white,
+                                ),
+                                decoration: BoxDecoration(
+                                    color: Theme.of(context).primaryColor,
+                                    shape: BoxShape.circle),
+                              ),
+                              SizedBox(
+                                width: 15,
+                              ),
+                              Text(
+                                "Search Destination",
+                                style:
+                                    TextStyle(fontSize: 12, fontFamily: "sans"),
+                              ),
+                            ],
+                          ),
+                          Icon(
+                            Icons.search_outlined,
+                            color: Colors.grey,
+                          ),
+                        ],
                       ),
                     ),
                   ),
+                  // TextFormField(
+                  //   readOnly: true,
+                  //   decoration: InputDecoration(
+                  //     prefixIcon: Icon(Icons.location_on_sharp),
+                  //     suffixIcon: Icon(
+                  //       Icons.search_outlined,
+                  //       color: Colors.grey,
+                  //     ),
+                  //     contentPadding: EdgeInsets.all(15),
+                  //     hintText: "Search Destination",
+                  //     focusedBorder: OutlineInputBorder(
+                  //       borderRadius: BorderRadius.circular(7.0),
+                  //       borderSide: const BorderSide(
+                  //         width: 2.0,
+                  //         color: Colors.grey,
+                  //       ),
+                  //     ),
+                  //   ),
+                  // ),
                   const SizedBox(
                     height: 25,
                   ),
