@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class AppThemes {
   static ThemeData themeData() {
@@ -10,11 +11,15 @@ class AppThemes {
         headlineSmall: TextStyle(color: Colors.grey),
       ),
       appBarTheme: AppBarTheme(
-        
-          iconTheme: IconThemeData(
-        color: Colors.black,
-        size: 25,
-      )),
+        systemOverlayStyle: SystemUiOverlayStyle(
+          statusBarColor: Colors.black,
+          statusBarIconBrightness: Brightness.light,
+        ),
+        iconTheme: IconThemeData(
+          color: Colors.black,
+          size: 25,
+        ),
+      ),
       bottomAppBarTheme: const BottomAppBarTheme(color: Colors.grey),
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
           selectedItemColor: Color(0xFFF50000),

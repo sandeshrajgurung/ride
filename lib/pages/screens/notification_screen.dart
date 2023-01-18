@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:sahara/models/data.dart';
 
 class NotificationScreen extends StatefulWidget {
@@ -13,6 +14,10 @@ class _NotificationScreenState extends State<NotificationScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          systemOverlayStyle: SystemUiOverlayStyle(
+            statusBarColor: Theme.of(context).primaryColor,
+            statusBarIconBrightness: Brightness.light,
+          ),
           elevation: 0,
           backgroundColor: Theme.of(context).primaryColor,
           title: Text("Notification"),
