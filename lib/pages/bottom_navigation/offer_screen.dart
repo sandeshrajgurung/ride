@@ -29,16 +29,16 @@ class _OffersScreenState extends State<OffersScreen> {
               ]),
         ),
         body: TabBarView(children: [
-          HowToTab(),
-          OfferTab(),
+          _HowToTab(),
+          _OfferTab(),
         ]),
       ),
     );
   }
 }
 
-class HowToTab extends StatelessWidget {
-  const HowToTab({super.key});
+class _HowToTab extends StatelessWidget {
+  const _HowToTab({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -246,15 +246,15 @@ class HowToTab extends StatelessWidget {
   }
 }
 
-//OfferTab
-class OfferTab extends StatefulWidget {
-  const OfferTab({super.key});
+//_OfferTab
+class _OfferTab extends StatefulWidget {
+  const _OfferTab({super.key});
 
   @override
-  State<OfferTab> createState() => _OfferTabState();
+  State<_OfferTab> createState() => __OfferTabState();
 }
 
-class _OfferTabState extends State<OfferTab> {
+class __OfferTabState extends State<_OfferTab> {
   @override
   Widget build(BuildContext context) {
     return Padding(

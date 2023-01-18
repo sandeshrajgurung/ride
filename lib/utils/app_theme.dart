@@ -10,6 +10,7 @@ class AppThemes {
         headlineSmall: TextStyle(color: Colors.grey),
       ),
       appBarTheme: AppBarTheme(
+        
           iconTheme: IconThemeData(
         color: Colors.black,
         size: 25,

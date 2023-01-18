@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sahara/pages/screens/notification_screen.dart';
 import 'package:sahara/pages/widgets/services.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -24,7 +25,12 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: Color(0xFFEAEAEA),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => NotificationScreen()));
+            },
             icon: const Icon(Icons.notifications_outlined),
           )
         ],
