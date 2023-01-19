@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:sahara/pages/screens/message_screen.dart';
 import 'package:sahara/pages/screens/view_profile_screen.dart';
-import 'package:sahara/utils/app_theme.dart';
+import 'package:sahara/pages/widgets/text_field.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -189,28 +190,32 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
+                    children: [
                       Text(
                         "SETTINGS",
                         style: TextStyle(fontSize: 16),
                       ),
                       ListTile(
-                          visualDensity:
-                              VisualDensity(horizontal: 0, vertical: -3),
-                          contentPadding: EdgeInsets.symmetric(horizontal: 0),
-                          horizontalTitleGap: 5,
-                          leading: Icon(Icons.language),
-                          title: Text("Change language")),
+                        visualDensity:
+                            VisualDensity(horizontal: 0, vertical: -3),
+                        contentPadding: EdgeInsets.symmetric(horizontal: 0),
+                        horizontalTitleGap: 5,
+                        leading: Icon(Icons.language),
+                        title: Text("Change language"),
+                        onTap: () => _languageDiaogue(context),
+                      ),
                       Divider(
                         height: 1,
                       ),
                       ListTile(
-                          visualDensity:
-                              VisualDensity(horizontal: 0, vertical: -3),
-                          contentPadding: EdgeInsets.symmetric(horizontal: 0),
-                          horizontalTitleGap: 5,
-                          leading: Icon(Icons.lock),
-                          title: Text("change password")),
+                        visualDensity:
+                            VisualDensity(horizontal: 0, vertical: -3),
+                        contentPadding: EdgeInsets.symmetric(horizontal: 0),
+                        horizontalTitleGap: 5,
+                        leading: Icon(Icons.lock),
+                        title: Text("change password"),
+                        onTap: () => _passwordDiaogue(context),
+                      ),
                     ],
                   ),
                 ),
@@ -320,6 +325,8 @@ _showAlertDialog(BuildContext context) {
               "Direct Message",
               style: TextStyle(fontSize: 14),
             ),
+            onTap: () => Navigator.push((context),
+                MaterialPageRoute(builder: (context) => MessageScreen())),
           ),
           ListTile(
             leading: Icon(Icons.email),
@@ -327,7 +334,126 @@ _showAlertDialog(BuildContext context) {
               "support@asuperapp.com",
               style: TextStyle(fontSize: 14),
             ),
+            onTap: () {
+              Uri email = Uri.parse('mailto:support@asuperapp.com');
+              launchUrl(email);
+            },
           ),
+        ],
+      ),
+    ),
+  );
+
+  // show the dialog
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
+  );
+}
+
+//Alert dialogue for language
+_languageDiaogue(BuildContext context) {
+  // Create AlertDialog
+  AlertDialog alert = AlertDialog(
+    titlePadding: EdgeInsets.all(0),
+    contentPadding: EdgeInsets.all(0),
+    title: ListTile(
+      tileColor: Theme.of(context).primaryColor,
+      title: Text(
+        'Select Language',
+        style: TextStyle(color: Colors.white),
+      ),
+      trailing: IconButton(
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+          icon: Icon(
+            Icons.close,
+            color: Colors.white,
+          )),
+    ),
+    content: Container(
+      height: MediaQuery.of(context).size.height * 0.20,
+      // decoration: const BoxDecoration(
+      //     borderRadius: BorderRadius.only(
+      //         bottomLeft: Radius.circular(100.0),
+      //         bottomRight: Radius.circular(100.0)),
+      //     color: Colors.white),
+      child: Column(
+        children: [
+          ListTile(
+            title: Text(
+              "English",
+              style: TextStyle(fontSize: 14),
+            ),
+            onTap: () {},
+          ),
+          const Divider(),
+          ListTile(
+            title: Text(
+              "Nepali",
+              style: TextStyle(fontSize: 14),
+            ),
+            onTap: () {},
+          ),
+        ],
+      ),
+    ),
+  );
+
+  // show the dialog
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
+  );
+}
+
+//Alert dialogue for password
+_passwordDiaogue(BuildContext context) {
+  // Create AlertDialog
+  AlertDialog alert = AlertDialog(
+    insetPadding: EdgeInsets.zero,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(50.0),
+          bottomRight: Radius.circular(50.0)),
+    ),
+    titlePadding: EdgeInsets.all(0),
+    contentPadding: EdgeInsets.all(15),
+    title: ListTile(
+      tileColor: Theme.of(context).primaryColor,
+      title: Text(
+        'Change Password',
+        style: TextStyle(color: Colors.white),
+      ),
+      trailing: IconButton(
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+          icon: Icon(
+            Icons.close,
+            color: Colors.white,
+          )),
+    ),
+    content: Container(
+      height: MediaQuery.of(context).size.height * 0.40,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          PasswordField(label: 'Old PassWord'),
+          PasswordField(label: 'New PassWord'),
+          PasswordField(label: 'Confirm PassWord'),
+          ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                elevation: 0,
+                backgroundColor: Theme.of(context).primaryColor,
+              ),
+              onPressed: () {},
+              child: Text("RESET PASSWORD"))
         ],
       ),
     ),
