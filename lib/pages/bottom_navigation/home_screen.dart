@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sahara/pages/screens/notification_screen.dart';
+import 'package:sahara/pages/widgets/carousel_slider.dart';
 import 'package:sahara/pages/widgets/services.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -260,25 +261,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                   ),
-                  // TextFormField(
-                  //   readOnly: true,
-                  //   decoration: InputDecoration(
-                  //     prefixIcon: Icon(Icons.location_on_sharp),
-                  //     suffixIcon: Icon(
-                  //       Icons.search_outlined,
-                  //       color: Colors.grey,
-                  //     ),
-                  //     contentPadding: EdgeInsets.all(15),
-                  //     hintText: "Search Destination",
-                  //     focusedBorder: OutlineInputBorder(
-                  //       borderRadius: BorderRadius.circular(7.0),
-                  //       borderSide: const BorderSide(
-                  //         width: 2.0,
-                  //         color: Colors.grey,
-                  //       ),
-                  //     ),
-                  //   ),
-                  // ),
+
                   const SizedBox(
                     height: 25,
                   ),
@@ -331,6 +314,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   Container(
                     height: 200,
                     color: Colors.grey,
+                    // child: FeaturedRestaurant(),
                   ),
                   //refer & earn
                   const SizedBox(

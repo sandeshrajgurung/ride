@@ -1,37 +1,42 @@
-import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/material.dart';
+// import 'package:flutter/material.dart';
 
-class FeaturedRestaurant extends StatefulWidget {
-  const FeaturedRestaurant({super.key});
+// class FeaturedRestaurant extends StatefulWidget {
+//   const FeaturedRestaurant({super.key});
 
-  @override
-  State<FeaturedRestaurant> createState() => _FeaturedRestaurantState();
-}
+//   @override
+//   State<FeaturedRestaurant> createState() => _FeaturedRestaurantState();
+// }
 
-class _FeaturedRestaurantState extends State<FeaturedRestaurant> {
-  final urlImages = [
-    'https://brandguff.com/wp-content/uploads/2022/03/image-11.png'
-        'https://img.freepik.com/premium-vector/hot-grill-logo-templates_15146-116.jpg'
-        'https://experiencenepalnow.com/wp-content/uploads/2016/11/222_310-Pixel-Logo-Himalayan-Java.jpg'
-  ];
-  @override
-  Widget build(BuildContext context) {
-    return CarouselSlider.builder(
-        itemCount: urlImages.length,
-        itemBuilder: (context, index, realIndex) {
-          final urlImage = urlImages[index];
+// class _FeaturedRestaurantState extends State<FeaturedRestaurant> {
+//   late PageController _pageController;
+//   List<String> images = [
+//     "https://images.wallpapersden.com/image/download/purple-sunrise-4k-vaporwave_bGplZmiUmZqaraWkpJRmbmdlrWZlbWU.jpg",
+//     "https://wallpaperaccess.com/full/2637581.jpg",
+//     "https://uhdwallpapers.org/uploads/converted/20/01/14/the-mandalorian-5k-1920x1080_477555-mm-90.jpg"
+//   ];
 
-          return buildImage(urlImage, index);
-        },
-        options: CarouselOptions(height: double.infinity));
-  }
+//   @override
+//   void initState() {
+//     super.initState();
+//     _pageController = PageController(viewportFraction: 0.8);
+//   }
 
-  Widget buildImage(String urlImage, int index) => Container(
-        height: 200,
-        color: Colors.grey,
-        child: Image.network(
-          urlImage,
-          fit: BoxFit.cover,
-        ),
-      );
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return PageView.builder(
+//         itemCount: images.length,
+//         pageSnapping: true,
+//         controller: _pageController,
+//         onPageChanged: (page) {
+//           setState(() {
+//             activePage = page;
+//           });
+//         },
+//         itemBuilder: (context, pagePosition) {
+//           return Container(
+//             margin: EdgeInsets.all(10),
+//             child: Image.network(images[pagePosition]),
+//           );
+//         });
+//   }
+// }

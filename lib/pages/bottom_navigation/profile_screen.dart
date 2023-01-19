@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:sahara/pages/screens/view_profile_screen.dart';
 import 'package:sahara/utils/app_theme.dart';
+import 'package:share_plus/share_plus.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -110,7 +112,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
+                    children: [
                       Text(
                         "OFFERS",
                         style: TextStyle(fontSize: 16),
@@ -131,6 +133,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         height: 1,
                       ),
                       ListTile(
+                          onTap: () {
+                            Share.share('https://asuper.app.link/iw9hV9n3Cwb');
+                          },
                           visualDensity:
                               VisualDensity(horizontal: 0, vertical: -3),
                           contentPadding: EdgeInsets.symmetric(horizontal: 0),
@@ -148,12 +153,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
+                    children: [
                       Text(
                         "SUPPORT & FEEDBACK",
                         style: TextStyle(fontSize: 16),
                       ),
                       ListTile(
+                          onTap: () {
+                            _showAlertDialog(context);
+                          },
                           visualDensity:
                               VisualDensity(horizontal: 0, vertical: -3),
                           contentPadding: EdgeInsets.symmetric(horizontal: 0),
@@ -258,4 +266,78 @@ class _ProfileScreenState extends State<ProfileScreen> {
       ),
     );
   }
+}
+
+_showAlertDialog(BuildContext context) {
+  // Create AlertDialog
+  AlertDialog alert = AlertDialog(
+    titlePadding: EdgeInsets.all(0),
+    contentPadding: EdgeInsets.all(0),
+    title: ListTile(
+      tileColor: Theme.of(context).primaryColor,
+      title: Text(
+        'Support',
+        style: TextStyle(color: Colors.white),
+      ),
+      trailing: IconButton(
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+          icon: Icon(
+            Icons.close,
+            color: Colors.white,
+          )),
+    ),
+    content: SizedBox(
+      height: 250,
+      child: Column(
+        children: [
+          ListTile(
+            leading: Icon(Icons.phone),
+            title: Text(
+              "9803802177",
+              style: TextStyle(fontSize: 14),
+            ),
+            onTap: () {
+              Uri phoneno = Uri.parse('tel:9803802177');
+              launchUrl(phoneno);
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.phone),
+            title: Text(
+              "9845285177",
+              style: TextStyle(fontSize: 14),
+            ),
+            onTap: () {
+              Uri phoneno = Uri.parse('tel:9845285177');
+              launchUrl(phoneno);
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.message),
+            title: Text(
+              "Direct Message",
+              style: TextStyle(fontSize: 14),
+            ),
+          ),
+          ListTile(
+            leading: Icon(Icons.email),
+            title: Text(
+              "support@asuperapp.com",
+              style: TextStyle(fontSize: 14),
+            ),
+          ),
+        ],
+      ),
+    ),
+  );
+
+  // show the dialog
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
+  );
 }

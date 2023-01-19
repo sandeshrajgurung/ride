@@ -26,3 +26,8 @@ final List<Item> items = [
       desc:
           'Happy New Year 2023!! May a New Year arrives with new hope & bag full of blessings, Have a prosperous Happy New Year 2023!!\n\n-Sahara(Ride Sharing Company)'),
 ];
+
+List<String> images = [
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTIZccfNPnqalhrWev-Xo7uBhkor57_rKbkw&usqp=CAU",
+  "https://wallpaperaccess.com/full/2637581.jpg"
+];
