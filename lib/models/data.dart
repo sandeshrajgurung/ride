@@ -31,3 +31,23 @@ List<String> images = [
   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTIZccfNPnqalhrWev-Xo7uBhkor57_rKbkw&usqp=CAU",
   "https://wallpaperaccess.com/full/2637581.jpg"
 ];
+
+class Promo {
+  String desc;
+  String expiryDate;
+  String code;
+
+  Promo({
+    required this.desc,
+    required this.expiryDate,
+    required this.code,
+  });
+}
+
+final List<Promo> promos = [
+  Promo(
+      desc: 'YOU HAVE 100% OFF UPTO RS.150 IN YOUR NEXT SAHARABIKE RIDE, ENJOY YOUR SAHARARIDE',
+      expiryDate: 'Jan 15, 2023 11:59 PM',
+      code: 'DHUKURE',
+  )
+      ];

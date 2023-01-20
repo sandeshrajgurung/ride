@@ -24,7 +24,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
           actions: [
             IconButton(
               onPressed: () {
-                showAlertDialog(context);
+                _showAlertDialog(context);
               },
               icon: Icon(Icons.delete),
               color: Colors.white,
@@ -34,7 +34,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
         body: ListView.builder(
           itemCount: items.length,
           itemBuilder: (context, index) {
-            final item;
+            final Item item;
             item = items[index];
             print(item.title);
             return Column(
@@ -75,7 +75,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
   }
 }
 
-showAlertDialog(BuildContext context) {
+_showAlertDialog(BuildContext context) {
   // Create button
   Widget noButton = TextButton(
     child: Text(

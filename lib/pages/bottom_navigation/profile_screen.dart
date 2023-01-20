@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:sahara/pages/screens/feedback_screens.dart';
 import 'package:sahara/pages/screens/message_screen.dart';
+import 'package:sahara/pages/screens/promo_screen.dart';
 import 'package:sahara/pages/screens/view_profile_screen.dart';
 import 'package:sahara/pages/widgets/text_field.dart';
 import 'package:share_plus/share_plus.dart';
@@ -119,21 +121,27 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         style: TextStyle(fontSize: 16),
                       ),
                       ListTile(
-                          visualDensity:
-                              VisualDensity(horizontal: 0, vertical: -3),
-                          contentPadding: EdgeInsets.symmetric(horizontal: 0),
-                          horizontalTitleGap: 5,
-                          leading: Image(
-                            height: 25,
-                            width: 25,
-                            image: NetworkImage(
-                                'https://www.ezyeat.net/uploads/6aef6d9e1f6d9d9f3ded8f113dffd64c.png'),
-                          ),
-                          title: Text("Promo Code")),
+                        visualDensity:
+                            VisualDensity(horizontal: 0, vertical: -3),
+                        contentPadding: EdgeInsets.symmetric(horizontal: 0),
+                        horizontalTitleGap: 5,
+                        leading: const Image(
+                          height: 25,
+                          width: 25,
+                          image: NetworkImage(
+                              'https://www.ezyeat.net/uploads/6aef6d9e1f6d9d9f3ded8f113dffd64c.png'),
+                        ),
+                        title: Text("Promo Code"),
+                        onTap: () => Navigator.push(
+                            (context),
+                            MaterialPageRoute(
+                                builder: (context) => PromoScreen())),
+                      ),
                       Divider(
                         height: 1,
                       ),
                       ListTile(
+                          splashColor: Colors.transparent,
                           onTap: () {
                             Share.share('https://asuper.app.link/iw9hV9n3Cwb');
                           },
@@ -161,7 +169,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                       ListTile(
                           onTap: () {
-                            _showAlertDialog(context);
+                            supportDialog(context);
                           },
                           visualDensity:
                               VisualDensity(horizontal: 0, vertical: -3),
@@ -173,6 +181,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         height: 1,
                       ),
                       ListTile(
+                          onTap: () => Navigator.push(
+                              (context),
+                              MaterialPageRoute(
+                                  builder: (context) => FeedbackScreen())),
                           visualDensity:
                               VisualDensity(horizontal: 0, vertical: -3),
                           contentPadding: EdgeInsets.symmetric(horizontal: 0),
@@ -273,7 +285,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   }
 }
 
-_showAlertDialog(BuildContext context) {
+supportDialog(BuildContext context) {
   // Create AlertDialog
   AlertDialog alert = AlertDialog(
     titlePadding: EdgeInsets.all(0),
@@ -357,6 +369,11 @@ _showAlertDialog(BuildContext context) {
 _languageDiaogue(BuildContext context) {
   // Create AlertDialog
   AlertDialog alert = AlertDialog(
+    shape: const RoundedRectangleBorder(
+      borderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(50.0),
+          bottomRight: Radius.circular(50.0)),
+    ),
     titlePadding: EdgeInsets.all(0),
     contentPadding: EdgeInsets.all(0),
     title: ListTile(
@@ -376,11 +393,6 @@ _languageDiaogue(BuildContext context) {
     ),
     content: Container(
       height: MediaQuery.of(context).size.height * 0.20,
-      // decoration: const BoxDecoration(
-      //     borderRadius: BorderRadius.only(
-      //         bottomLeft: Radius.circular(100.0),
-      //         bottomRight: Radius.circular(100.0)),
-      //     color: Colors.white),
       child: Column(
         children: [
           ListTile(
@@ -393,7 +405,7 @@ _languageDiaogue(BuildContext context) {
           const Divider(),
           ListTile(
             title: Text(
-              "Nepali",
+              "नेपाली",
               style: TextStyle(fontSize: 14),
             ),
             onTap: () {},
@@ -417,7 +429,7 @@ _passwordDiaogue(BuildContext context) {
   // Create AlertDialog
   AlertDialog alert = AlertDialog(
     insetPadding: EdgeInsets.zero,
-    shape: RoundedRectangleBorder(
+    shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(50.0),
           bottomRight: Radius.circular(50.0)),
@@ -434,7 +446,7 @@ _passwordDiaogue(BuildContext context) {
           onPressed: () {
             Navigator.of(context).pop();
           },
-          icon: Icon(
+          icon: const Icon(
             Icons.close,
             color: Colors.white,
           )),

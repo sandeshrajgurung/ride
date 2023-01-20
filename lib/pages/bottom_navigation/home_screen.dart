@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:sahara/pages/bottom_navigation/profile_screen.dart';
 import 'package:sahara/pages/screens/notification_screen.dart';
 import 'package:sahara/pages/widgets/carousel_slider.dart';
 import 'package:sahara/pages/widgets/services.dart';
+import 'package:share_plus/share_plus.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -374,7 +376,9 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         backgroundColor: Theme.of(context).primaryColor,
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Share.share('https://asuper.app.link/iw9hV9n3Cwb');
+                      },
                       child: Text("Refer & Earn"),
                     ),
                   ),
@@ -438,7 +442,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     thickness: 0.75,
                     color: Colors.black12,
                   ),
-                  const ListTile(
+                  ListTile(
                     leading: CircleAvatar(
                       radius: 21,
                       backgroundColor: Colors.black54,
@@ -457,6 +461,9 @@ class _HomeScreenState extends State<HomeScreen> {
                         fontSize: 12,
                       ),
                     ),
+                    onTap: () {
+                      supportDialog(context);
+                    },
                   ),
                 ],
               ),
