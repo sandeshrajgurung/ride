@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:sahara/pages/screens/about_screen.dart';
 import 'package:sahara/pages/screens/feedback_screens.dart';
 import 'package:sahara/pages/screens/message_screen.dart';
 import 'package:sahara/pages/screens/promo_screen.dart';
@@ -239,32 +241,74 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
+                    children: [
                       Text(
                         "GENERAL",
                         style: TextStyle(fontSize: 16),
                       ),
                       ListTile(
+                          onTap: () {
+                            Navigator.push(
+                                (context),
+                                MaterialPageRoute(
+                                    builder: (context) => AboutScreen()));
+                          },
                           contentPadding: EdgeInsets.symmetric(horizontal: 0),
                           horizontalTitleGap: 5,
                           leading: Icon(Icons.apps),
                           title: Text("About Us")),
                       ListTile(
+                          onTap: () async {
+                            final Uri url = Uri.parse(
+                                'https://sahararide.com/terms/condition/');
+                            if (!await launchUrl(
+                              url,
+                              mode: LaunchMode.externalApplication,
+                            )) {
+                              throw 'Could not launch $url';
+                            }
+                          },
                           contentPadding: EdgeInsets.symmetric(horizontal: 0),
                           horizontalTitleGap: 5,
                           leading: Icon(Icons.policy),
                           title: Text("Terms and condition")),
                       ListTile(
+                          onTap: () => Fluttertoast.showToast(
+                              msg: 'Rate is completed',
+                              toastLength: Toast.LENGTH_SHORT,
+                              gravity: ToastGravity.BOTTOM,
+                              backgroundColor: Colors.grey.withOpacity(0.2),
+                              textColor: Colors.black),
                           contentPadding: EdgeInsets.symmetric(horizontal: 0),
                           horizontalTitleGap: 5,
                           leading: Icon(Icons.star),
                           title: Text("Rate Sahara")),
                       ListTile(
+                          onTap: () async {
+                            final Uri url = Uri.parse(
+                                'https://www.facebook.com/SaharaRide.nepal?mibextid=ZbWKwL');
+                            if (!await launchUrl(
+                              url,
+                              mode: LaunchMode.externalApplication,
+                            )) {
+                              throw 'Could not launch $url';
+                            }
+                          },
                           contentPadding: EdgeInsets.symmetric(horizontal: 0),
                           horizontalTitleGap: 5,
                           leading: Icon(Icons.facebook_rounded),
                           title: Text("Facebook")),
                       ListTile(
+                          onTap: () async {
+                            final Uri url = Uri.parse(
+                                'https://instagram.com/sahararide.nepal?igshid=YmMyMTA2M2Y=');
+                            if (!await launchUrl(
+                              url,
+                              mode: LaunchMode.externalApplication,
+                            )) {
+                              throw 'Could not launch $url';
+                            }
+                          },
                           contentPadding: EdgeInsets.symmetric(horizontal: 0),
                           horizontalTitleGap: 5,
                           leading: Image(

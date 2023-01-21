@@ -21,11 +21,15 @@ INJECTED from C:\Flutter_practice\sahara\android\app\src\main\AndroidManifest.xm
 INJECTED from C:\Flutter_practice\sahara\android\app\src\main\AndroidManifest.xml:1:1-34:12
 INJECTED from C:\Flutter_practice\sahara\android\app\src\main\AndroidManifest.xml:1:1-34:12
 MERGED from C:\Flutter_practice\sahara\android\app\src\main\AndroidManifest.xml:1:1-34:12
+MERGED from [:store_redirect] C:\Flutter_practice\sahara\build\store_redirect\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:share_plus] C:\Flutter_practice\sahara\build\share_plus\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-37:12
 MERGED from [:url_launcher_android] C:\Flutter_practice\sahara\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-16:12
+MERGED from [:fluttertoast] C:\Flutter_practice\sahara\build\fluttertoast\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:path_provider_android] C:\Flutter_practice\sahara\build\path_provider_android\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
+MERGED from [:webview_flutter_android] C:\Flutter_practice\sahara\build\webview_flutter_android\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [androidx.window:window-java:1.0.0-beta04] C:\Users\sande\.gradle\caches\transforms-3\006d93cd422dbc43e89591147c2de572\transformed\jetified-window-java-1.0.0-beta04\AndroidManifest.xml:17:1-23:12
 MERGED from [androidx.window:window:1.0.0-beta04] C:\Users\sande\.gradle\caches\transforms-3\dee59bb480020f42d53c2ea15e4501f7\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:17:1-33:12
+MERGED from [androidx.webkit:webkit:1.5.0] C:\Users\sande\.gradle\caches\transforms-3\7a9e722f9cadd913a07709114ac94695\transformed\webkit-1.5.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\sande\.gradle\caches\transforms-3\9354257804af8250f2ffb7c22e2892d5\transformed\fragment-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\sande\.gradle\caches\transforms-3\f156363817d5f71529d60b6716392550\transformed\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.loader:loader:1.0.0] C:\Users\sande\.gradle\caches\transforms-3\cf24d35e50a727536c7357721dc007c5\transformed\loader-1.0.0\AndroidManifest.xml:17:1-22:12
@@ -63,16 +67,24 @@ uses-sdk
 INJECTED from C:\Flutter_practice\sahara\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Flutter_practice\sahara\android\app\src\main\AndroidManifest.xml
 INJECTED from C:\Flutter_practice\sahara\android\app\src\main\AndroidManifest.xml
+MERGED from [:store_redirect] C:\Flutter_practice\sahara\build\store_redirect\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:store_redirect] C:\Flutter_practice\sahara\build\store_redirect\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:share_plus] C:\Flutter_practice\sahara\build\share_plus\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:share_plus] C:\Flutter_practice\sahara\build\share_plus\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:url_launcher_android] C:\Flutter_practice\sahara\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:url_launcher_android] C:\Flutter_practice\sahara\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:fluttertoast] C:\Flutter_practice\sahara\build\fluttertoast\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:fluttertoast] C:\Flutter_practice\sahara\build\fluttertoast\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:path_provider_android] C:\Flutter_practice\sahara\build\path_provider_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:path_provider_android] C:\Flutter_practice\sahara\build\path_provider_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:webview_flutter_android] C:\Flutter_practice\sahara\build\webview_flutter_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:webview_flutter_android] C:\Flutter_practice\sahara\build\webview_flutter_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.window:window-java:1.0.0-beta04] C:\Users\sande\.gradle\caches\transforms-3\006d93cd422dbc43e89591147c2de572\transformed\jetified-window-java-1.0.0-beta04\AndroidManifest.xml:19:5-21:41
 MERGED from [androidx.window:window-java:1.0.0-beta04] C:\Users\sande\.gradle\caches\transforms-3\006d93cd422dbc43e89591147c2de572\transformed\jetified-window-java-1.0.0-beta04\AndroidManifest.xml:19:5-21:41
 MERGED from [androidx.window:window:1.0.0-beta04] C:\Users\sande\.gradle\caches\transforms-3\dee59bb480020f42d53c2ea15e4501f7\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.window:window:1.0.0-beta04] C:\Users\sande\.gradle\caches\transforms-3\dee59bb480020f42d53c2ea15e4501f7\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.webkit:webkit:1.5.0] C:\Users\sande\.gradle\caches\transforms-3\7a9e722f9cadd913a07709114ac94695\transformed\webkit-1.5.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.webkit:webkit:1.5.0] C:\Users\sande\.gradle\caches\transforms-3\7a9e722f9cadd913a07709114ac94695\transformed\webkit-1.5.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\sande\.gradle\caches\transforms-3\9354257804af8250f2ffb7c22e2892d5\transformed\fragment-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\sande\.gradle\caches\transforms-3\9354257804af8250f2ffb7c22e2892d5\transformed\fragment-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\sande\.gradle\caches\transforms-3\f156363817d5f71529d60b6716392550\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_holo_date_picker/flutter_holo_date_picker.dart';
+import 'package:intl/intl.dart';
 
 class EditProfile extends StatefulWidget {
   const EditProfile({super.key});
@@ -14,6 +16,15 @@ class _EditProfileState extends State<EditProfile> {
   // Group Value for Radio Button.
   int id = 1;
   // String gender = "male";
+  TextEditingController dateinput = TextEditingController();
+  //text editing controller for text field
+
+  @override
+  void initState() {
+    dateinput.text = "2021-03-16"; //set the initial value of text field
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,9 +74,43 @@ class _EditProfileState extends State<EditProfile> {
               label: 'Email Address',
               value: 'user@gmail.com',
             ),
-            EditTxt(
-              label: 'Date of Birth',
-              value: '06/01/02',
+            TextFormField(
+              controller: dateinput,
+              onTap: () async {
+                var datePicked = await DatePicker.showSimpleDatePicker(
+                  context,
+                  initialDate: DateTime(1994),
+                  firstDate: DateTime(1960),
+                  lastDate: DateTime(2012),
+                  dateFormat: 'yyyy-MM-dd',
+                  locale: DateTimePickerLocale.en_us,
+                  looping: true,
+                );
+                print('datePicked: $datePicked');
+                String formattedDate =
+                    DateFormat('yyyy-MM-dd').format(datePicked!);
+                setState(() {
+                  dateinput.text = formattedDate;
+                });
+              },
+              readOnly: true,
+              style: TextStyle(fontSize: 14),
+              enabled: true,
+              decoration: InputDecoration(
+                floatingLabelBehavior: FloatingLabelBehavior.always,
+                labelText: 'Date of Birth',
+                labelStyle: TextStyle(
+                  color: Theme.of(context).primaryColor,
+                ),
+                contentPadding: EdgeInsets.all(17),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(width: 1, color: Colors.black38),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                      width: 1.5, color: Theme.of(context).primaryColor),
+                ),
+              ),
             ),
             EditTxt(
               label: 'Emergency Contact',

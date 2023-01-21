@@ -4,6 +4,8 @@ import 'package:sahara/pages/screens/notification_screen.dart';
 import 'package:sahara/pages/widgets/carousel_slider.dart';
 import 'package:sahara/pages/widgets/services.dart';
 import 'package:share_plus/share_plus.dart';
+import 'package:store_redirect/store_redirect.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -390,8 +392,14 @@ class _HomeScreenState extends State<HomeScreen> {
                     thickness: 0.75,
                     color: Colors.black12,
                   ),
-                  const ListTile(
-                    leading: CircleAvatar(
+                  ListTile(
+                    onTap: () {
+                      StoreRedirect.redirect(
+                        androidAppId: 'com.businessgrowthcompany.superapprider',
+                        iOSAppId: '1576198596',
+                      );
+                    },
+                    leading: const CircleAvatar(
                       radius: 21,
                       backgroundColor: Colors.black54,
                       child: CircleAvatar(
@@ -417,7 +425,14 @@ class _HomeScreenState extends State<HomeScreen> {
                     thickness: 0.75,
                     color: Colors.black12,
                   ),
-                  const ListTile(
+                  ListTile(
+                    onTap: () {
+                      StoreRedirect.redirect(
+                        androidAppId:
+                            'com.businessgrowthcompany.superrestaurant',
+                        iOSAppId: '',
+                      );
+                    },
                     leading: CircleAvatar(
                       radius: 21,
                       backgroundColor: Colors.black54,

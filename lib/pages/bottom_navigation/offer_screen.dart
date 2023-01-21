@@ -87,7 +87,16 @@ class _HowToTab extends StatelessWidget {
                           backgroundColor: Theme.of(context).primaryColor,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(7))),
-                      onPressed: () {},
+                      onPressed: () async {
+                        final Uri url = Uri.parse(
+                            'https://youtube.com/shorts/e-2Cq0W5TiM?feature=share');
+                        if (!await launchUrl(
+                          url,
+                          mode: LaunchMode.externalApplication,
+                        )) {
+                          throw 'Could not launch $url';
+                        }
+                      },
                       child: Text(
                         "WATCH NOW",
                         style: TextStyle(fontSize: 12),
@@ -134,7 +143,16 @@ class _HowToTab extends StatelessWidget {
                           backgroundColor: Theme.of(context).primaryColor,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(7))),
-                      onPressed: () {},
+                      onPressed: () async {
+                        final Uri url =
+                            Uri.parse('https://fb.watch/iacL7TVyHl/');
+                        if (!await launchUrl(
+                          url,
+                          mode: LaunchMode.externalApplication,
+                        )) {
+                          throw 'Could not launch $url';
+                        }
+                      },
                       child: Text(
                         "WATCH NOW",
                         style: TextStyle(fontSize: 12),
@@ -181,7 +199,16 @@ class _HowToTab extends StatelessWidget {
                           backgroundColor: Theme.of(context).primaryColor,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(7))),
-                      onPressed: () {},
+                      onPressed: () async {
+                        final Uri url =
+                            Uri.parse('https://fb.watch/iacNbxkZLi/');
+                        if (!await launchUrl(
+                          url,
+                          mode: LaunchMode.externalApplication,
+                        )) {
+                          throw 'Could not launch $url';
+                        }
+                      },
                       child: Text(
                         "WATCH NOW",
                         style: TextStyle(fontSize: 12),
@@ -228,7 +255,16 @@ class _HowToTab extends StatelessWidget {
                           backgroundColor: Theme.of(context).primaryColor,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(7))),
-                      onPressed: () {},
+                      onPressed: () async {
+                        final Uri url =
+                            Uri.parse('https://fb.watch/iacOyBRnd6/');
+                        if (!await launchUrl(
+                          url,
+                          mode: LaunchMode.externalApplication,
+                        )) {
+                          throw 'Could not launch $url';
+                        }
+                      },
                       child: Text(
                         "WATCH NOW",
                         style: TextStyle(fontSize: 12),
@@ -318,3 +354,5 @@ class __OfferTabState extends State<_OfferTab> {
     );
   }
 }
+
+
