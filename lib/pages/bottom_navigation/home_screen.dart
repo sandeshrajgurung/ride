@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sahara/pages/bottom_navigation/profile_screen.dart';
+import 'package:sahara/pages/screens/featured_restro.dart';
 import 'package:sahara/pages/screens/notification_screen.dart';
 import 'package:sahara/pages/widgets/carousel_slider.dart';
 import 'package:sahara/pages/widgets/services.dart';
@@ -302,13 +303,21 @@ class _HomeScreenState extends State<HomeScreen> {
                           fontSize: 18,
                         ),
                       ),
-                      Text(
-                        "All",
-                        style: TextStyle(
-                          color: Theme.of(context).primaryColor,
-                          fontSize: 18,
+                      TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                              (context),
+                              MaterialPageRoute(
+                                  builder: (context) => FeaturedRestaurants()));
+                        },
+                        child: Text(
+                          "All",
+                          style: TextStyle(
+                            color: Theme.of(context).primaryColor,
+                            fontSize: 18,
+                          ),
                         ),
-                      ),
+                      )
                     ],
                   ),
                   const SizedBox(
@@ -316,9 +325,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   //carousel
                   Container(
-                    height: 200,
-                    color: Colors.grey,
-                    // child: FeaturedRestaurant(),
+                    height: MediaQuery.of(context).size.height * 0.25,
+                    decoration:
+                        BoxDecoration(borderRadius: BorderRadius.circular(8.0)),
+                    child: CustomIndicator(),
                   ),
                   //refer & earn
                   const SizedBox(

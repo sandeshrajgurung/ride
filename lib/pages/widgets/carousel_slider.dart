@@ -1,42 +1,79 @@
-// import 'package:flutter/material.dart';
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter/material.dart';
 
-// class FeaturedRestaurant extends StatefulWidget {
-//   const FeaturedRestaurant({super.key});
+class CustomIndicator extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return CustomIndicatorState();
+  }
+}
 
-//   @override
-//   State<FeaturedRestaurant> createState() => _FeaturedRestaurantState();
-// }
+class CustomIndicatorState extends State<CustomIndicator> {
+  int currentPos = 0;
+  List<String> listPaths = [
+    "lib/assets/restro0.jpg",
+    "lib/assets/restro1.jpg",
+    "lib/assets/restro2.jpg",
+    "lib/assets/restro3.jpg",
+  ];
 
-// class _FeaturedRestaurantState extends State<FeaturedRestaurant> {
-//   late PageController _pageController;
-//   List<String> images = [
-//     "https://images.wallpapersden.com/image/download/purple-sunrise-4k-vaporwave_bGplZmiUmZqaraWkpJRmbmdlrWZlbWU.jpg",
-//     "https://wallpaperaccess.com/full/2637581.jpg",
-//     "https://uhdwallpapers.org/uploads/converted/20/01/14/the-mandalorian-5k-1920x1080_477555-mm-90.jpg"
-//   ];
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Stack(
+        alignment: Alignment.bottomCenter,
+        children: [
+          CarouselSlider.builder(
+            itemCount: listPaths.length,
+            options: CarouselOptions(
+                viewportFraction: 1,
+                autoPlay: true,
+                onPageChanged: (index, reason) {
+                  setState(() {
+                    currentPos = index;
+                  });
+                }),
+            itemBuilder: (context, index, _) {
+              return MyImageView(listPaths[index]);
+            },
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: listPaths.map((url) {
+              int index = listPaths.indexOf(url);
+              return Container(
+                width: 8.0,
+                height: 8.0,
+                margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 2.0),
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: currentPos == index
+                      ? Color.fromRGBO(0, 0, 0, 0.9)
+                      : Color.fromRGBO(0, 0, 0, 0.4),
+                ),
+              );
+            }).toList(),
+          ),
+        ],
+      ),
+    );
+  }
+}
 
-//   @override
-//   void initState() {
-//     super.initState();
-//     _pageController = PageController(viewportFraction: 0.8);
-//   }
+class MyImageView extends StatelessWidget {
+  String imgPath;
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return PageView.builder(
-//         itemCount: images.length,
-//         pageSnapping: true,
-//         controller: _pageController,
-//         onPageChanged: (page) {
-//           setState(() {
-//             activePage = page;
-//           });
-//         },
-//         itemBuilder: (context, pagePosition) {
-//           return Container(
-//             margin: EdgeInsets.all(10),
-//             child: Image.network(images[pagePosition]),
-//           );
-//         });
-//   }
-// }
+  MyImageView(this.imgPath);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: MediaQuery.of(context).size.height * 0.25,
+      width: double.infinity,
+      child: Image.asset(
+        imgPath,
+        fit: BoxFit.cover,
+      ),
+    );
+  }
+}

@@ -1,136 +1,80 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_holo_date_picker/flutter_holo_date_picker.dart';
 
+class CustomIndicator extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return CustomIndicatorState();
+  }
+}
 
+class CustomIndicatorState extends State<CustomIndicator> {
+  int currentPos = 0;
+  List<String> listPaths = [
+    "lib/assets/restro0.jpg",
+    "lib/assets/restro1.jpg",
+    "lib/assets/restro2.jpg",
+    "lib/assets/restro3.jpg",
+  ];
 
-class MyHomePage extends StatelessWidget {
+  @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          ElevatedButton(
-            child: Text("open picker dialog"),
-            onPressed: () async {
-              var datePicked = await DatePicker.showSimpleDatePicker(
-                context,
-                initialDate: DateTime(1994),
-                firstDate: DateTime(1960),
-                lastDate: DateTime(2012),
-                dateFormat: "dd-MMMM-yyyy",
-                locale: DateTimePickerLocale.th,
-                looping: true,
-              );
-
-              final snackBar =
-                  SnackBar(content: Text("Date Picked $datePicked"));
-              ScaffoldMessenger.of(context).showSnackBar(snackBar);
-            },
-          ),
-          ElevatedButton(
-            child: Text("Show picker widget"),
-            onPressed: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (_) => WidgetPage()));
-            },
-          )
-        ],
+    return Scaffold(
+      body: Container(
+        color: Colors.green,
+        height: 300,
+        child: Stack(
+          alignment: Alignment.bottomCenter,
+          children: [
+            CarouselSlider.builder(
+              itemCount: listPaths.length,
+              options: CarouselOptions(
+                  autoPlay: true,
+                  onPageChanged: (index, reason) {
+                    setState(() {
+                      currentPos = index;
+                    });
+                  }),
+              itemBuilder: (context, index, _) {
+                return MyImageView(listPaths[index]);
+              },
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: listPaths.map((url) {
+                int index = listPaths.indexOf(url);
+                return Container(
+                  width: 8.0,
+                  height: 8.0,
+                  margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 2.0),
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: currentPos == index
+                        ? Color.fromRGBO(0, 0, 0, 0.9)
+                        : Color.fromRGBO(0, 0, 0, 0.4),
+                  ),
+                );
+              }).toList(),
+            ),
+          ],
+        ),
       ),
     );
   }
 }
 
-class WidgetPage extends StatefulWidget {
-  @override
-  _WidgetPageState createState() => _WidgetPageState();
-}
+class MyImageView extends StatelessWidget {
+  String imgPath;
 
-class _WidgetPageState extends State<WidgetPage> {
-  DateTime? _selectedDate;
+  MyImageView(this.imgPath);
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Container(
-          decoration: BoxDecoration(
-              gradient: LinearGradient(
-            begin: FractionalOffset.topCenter,
-            end: FractionalOffset.bottomCenter,
-            colors: [
-              Colors.grey[900]!,
-              Colors.black,
-            ],
-            stops: const [0.7, 1.0],
-          )),
-          child: Center(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 25),
-                  child: DatePickerWidget(
-                    looping: false, // default is not looping
-                    firstDate: DateTime.now(), //DateTime(1960),
-                    //  lastDate: DateTime(2002, 1, 1),
-//              initialDate: DateTime.now(),// DateTime(1994),
-                    dateFormat:
-                        // "MM-dd(E)",
-                        "dd/MMMM/yyyy",
-                    // locale: DatePicker.localeFromString('th'),
-                    onChange: (DateTime newDate, _) {
-                      setState(() {
-                        _selectedDate = newDate;
-                      });
-                      print(_selectedDate);
-                    },
-                    pickerTheme: DateTimePickerTheme(
-                      backgroundColor: Colors.transparent,
-                      itemTextStyle:
-                          TextStyle(color: Colors.white, fontSize: 19),
-                      dividerColor: Colors.white,
-                    ),
-                  ),
-                ),
-                Text("${_selectedDate ?? ''}"),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-    //var locale = "zh";
-    // return SafeArea(
-    //   child: Scaffold(
-    //     body: Center(
-    //       child: DatePickerWidget(
-    //         locale: //locale == 'zh'
-    //             DateTimePickerLocale.zh_cn
-    //             //  DateTimePickerLocale.en_us
-    //         ,
-    //         lastDate: DateTime.now(),
-    //         // dateFormat: "yyyy : MMM : dd",
-    //         // dateFormat: 'yyyy MMMM dd',
-    //         onChange: (DateTime newDate, _) {
-    //           setState(() {
-    //             var dob = newDate.toString();
-    //             print(dob);
-    //           });
-    //         },
-    //         pickerTheme: DateTimePickerTheme(
-    //           backgroundColor: Colors.transparent,
-    //           dividerColor: const Color(0xffe3e3e3),
-    //           itemTextStyle: TextStyle(
-    //             fontFamily: 'NotoSansTC',
-    //             fontSize: 18,
-    //             fontWeight: FontWeight.w500,
-    //             color: Theme.of(context).primaryColor,
-    //           ),
-    //         ),
-    //       ),
-    //     ),
-    //   ),
-    // );
+    return Container(
+        margin: EdgeInsets.symmetric(horizontal: 5),
+        child: FittedBox(
+          fit: BoxFit.fill,
+          child: Image.asset(imgPath),
+        ));
   }
 }

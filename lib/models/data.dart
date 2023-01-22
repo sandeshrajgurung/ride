@@ -27,11 +27,7 @@ final List<Item> items = [
           'Happy New Year 2023!! May a New Year arrives with new hope & bag full of blessings, Have a prosperous Happy New Year 2023!!\n\n-Sahara(Ride Sharing Company)'),
 ];
 
-List<String> images = [
-  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTIZccfNPnqalhrWev-Xo7uBhkor57_rKbkw&usqp=CAU",
-  "https://wallpaperaccess.com/full/2637581.jpg"
-];
-
+// For promo screen
 class Promo {
   String desc;
   String expiryDate;
@@ -46,8 +42,69 @@ class Promo {
 
 final List<Promo> promos = [
   Promo(
-      desc: 'YOU HAVE 100% OFF UPTO RS.150 IN YOUR NEXT SAHARABIKE RIDE, ENJOY YOUR SAHARARIDE',
-      expiryDate: 'Jan 15, 2023 11:59 PM',
-      code: 'DHUKURE',
+    desc:
+        'YOU HAVE 100% OFF UPTO RS.150 IN YOUR NEXT SAHARABIKE RIDE, ENJOY YOUR SAHARARIDE',
+    expiryDate: 'Jan 15, 2023 11:59 PM',
+    code: 'DHUKURE',
   )
-      ];
+];
+
+//For Carousel Sider
+
+class Restaurant {
+  String name;
+  String address;
+  String type;
+  String deliveryHours;
+  int ratings;
+  String imageUrl;
+
+  Restaurant({
+    required this.name,
+    required this.address,
+    required this.type,
+    required this.deliveryHours,
+    required this.ratings,
+    required this.imageUrl,
+  });
+}
+
+final _restaurant0 = Restaurant(
+  name: 'Restaurant Name',
+  address: 'Restaurant Address',
+  type: 'Multi-cuisine',
+  deliveryHours: '11:00 AM-09:00 PM',
+  ratings: 5,
+  imageUrl: 'lib/assets/restro0.jpg',
+);
+final _restaurant1 = Restaurant(
+  name: 'Restaurant Name',
+  address: 'Restaurant Address',
+  type: 'Multi-cuisine',
+  deliveryHours: '11:00 AM-09:00 PM',
+  ratings: 5,
+  imageUrl: 'lib/assets/restro1.jpg',
+);
+final _restaurant2 = Restaurant(
+  name: 'Restaurant Name',
+  address: 'Restaurant Address',
+  type: 'Multi-cuisine',
+  deliveryHours: '11:00 AM-09:00 PM',
+  ratings: 5,
+  imageUrl: 'lib/assets/restro2.jpg',
+);
+final _restaurant3 = Restaurant(
+  name: 'Restaurant Name',
+  address: 'Restaurant Address',
+  type: 'Multi-cuisine',
+  deliveryHours: '11:00 AM-09:00 PM',
+  ratings: 5,
+  imageUrl: 'lib/assets/restro3.jpg',
+);
+
+final List<Restaurant> restaurants = [
+  _restaurant0,
+  _restaurant1,
+  _restaurant2,
+  _restaurant3,
+];
