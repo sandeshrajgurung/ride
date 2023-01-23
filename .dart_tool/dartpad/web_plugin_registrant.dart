@@ -7,6 +7,7 @@
 // ignore_for_file: type=lint
 
 import 'package:fluttertoast/fluttertoast_web.dart';
+import 'package:geolocator_web/geolocator_web.dart';
 import 'package:share_plus/src/share_plus_web.dart';
 import 'package:url_launcher_web/url_launcher_web.dart';
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
@@ -14,6 +15,7 @@ import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 void registerPlugins([final Registrar? pluginRegistrar]) {
   final Registrar registrar = pluginRegistrar ?? webPluginRegistrar;
   FluttertoastWebPlugin.registerWith(registrar);
+  GeolocatorPlugin.registerWith(registrar);
   SharePlusWebPlugin.registerWith(registrar);
   UrlLauncherPlugin.registerWith(registrar);
   registrar.registerMessageHandler();

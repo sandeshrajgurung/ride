@@ -1,12 +1,16 @@
 -- Merging decision tree log ---
 application
 INJECTED from C:\Flutter_practice\sahara\android\app\src\main\AndroidManifest.xml:7:4-39:19
+MERGED from [:geolocator_android] C:\Flutter_practice\sahara\build\geolocator_android\intermediates\merged_manifest\debug\AndroidManifest.xml:11:5-17:19
+MERGED from [:geolocator_android] C:\Flutter_practice\sahara\build\geolocator_android\intermediates\merged_manifest\debug\AndroidManifest.xml:11:5-17:19
 MERGED from [:share_plus] C:\Flutter_practice\sahara\build\share_plus\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-35:19
 MERGED from [:share_plus] C:\Flutter_practice\sahara\build\share_plus\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-35:19
 MERGED from [:url_launcher_android] C:\Flutter_practice\sahara\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-14:19
 MERGED from [:url_launcher_android] C:\Flutter_practice\sahara\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-14:19
 MERGED from [androidx.window:window:1.0.0-beta04] C:\Users\sande\.gradle\caches\transforms-3\dee59bb480020f42d53c2ea15e4501f7\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:24:5-31:19
 MERGED from [androidx.window:window:1.0.0-beta04] C:\Users\sande\.gradle\caches\transforms-3\dee59bb480020f42d53c2ea15e4501f7\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:24:5-31:19
+MERGED from [com.google.android.gms:play-services-location:20.0.0] C:\Users\sande\.gradle\caches\transforms-3\feffbcdba9c9a3b2fe3311aa10f06032\transformed\jetified-play-services-location-20.0.0\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-location:20.0.0] C:\Users\sande\.gradle\caches\transforms-3\feffbcdba9c9a3b2fe3311aa10f06032\transformed\jetified-play-services-location-20.0.0\AndroidManifest.xml:7:5-20
 MERGED from [com.google.android.gms:play-services-maps:18.1.0] C:\Users\sande\.gradle\caches\transforms-3\a0e34175b89fa528462076cc4208822f\transformed\jetified-play-services-maps-18.1.0\AndroidManifest.xml:36:5-42:19
 MERGED from [com.google.android.gms:play-services-maps:18.1.0] C:\Users\sande\.gradle\caches\transforms-3\a0e34175b89fa528462076cc4208822f\transformed\jetified-play-services-maps-18.1.0\AndroidManifest.xml:36:5-42:19
 MERGED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\sande\.gradle\caches\transforms-3\082fa8f1e076fd76c98f4d760b4e67b1\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:19:5-23:19
@@ -30,15 +34,18 @@ INJECTED from C:\Flutter_practice\sahara\android\app\src\main\AndroidManifest.xm
 INJECTED from C:\Flutter_practice\sahara\android\app\src\main\AndroidManifest.xml:1:1-40:12
 MERGED from C:\Flutter_practice\sahara\android\app\src\main\AndroidManifest.xml:1:1-40:12
 MERGED from [:store_redirect] C:\Flutter_practice\sahara\build\store_redirect\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
+MERGED from [:geolocator_android] C:\Flutter_practice\sahara\build\geolocator_android\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-19:12
 MERGED from [:google_maps_flutter_android] C:\Flutter_practice\sahara\build\google_maps_flutter_android\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:flutter_plugin_android_lifecycle] C:\Flutter_practice\sahara\build\flutter_plugin_android_lifecycle\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:share_plus] C:\Flutter_practice\sahara\build\share_plus\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-37:12
-MERGED from [:url_launcher_android] C:\Flutter_practice\sahara\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-16:12
 MERGED from [:fluttertoast] C:\Flutter_practice\sahara\build\fluttertoast\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
+MERGED from [:url_launcher_android] C:\Flutter_practice\sahara\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-16:12
 MERGED from [:path_provider_android] C:\Flutter_practice\sahara\build\path_provider_android\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:webview_flutter_android] C:\Flutter_practice\sahara\build\webview_flutter_android\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [androidx.window:window-java:1.0.0-beta04] C:\Users\sande\.gradle\caches\transforms-3\006d93cd422dbc43e89591147c2de572\transformed\jetified-window-java-1.0.0-beta04\AndroidManifest.xml:17:1-23:12
 MERGED from [androidx.window:window:1.0.0-beta04] C:\Users\sande\.gradle\caches\transforms-3\dee59bb480020f42d53c2ea15e4501f7\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:17:1-33:12
+MERGED from [com.google.android.gms:play-services-location:20.0.0] C:\Users\sande\.gradle\caches\transforms-3\feffbcdba9c9a3b2fe3311aa10f06032\transformed\jetified-play-services-location-20.0.0\AndroidManifest.xml:2:1-9:12
+MERGED from [androidx.core:core-ktx:1.9.0] C:\Users\sande\.gradle\caches\transforms-3\3e6c979ab8eca9aa1eeca6cb7cd9f261\transformed\jetified-core-ktx-1.9.0\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.webkit:webkit:1.5.0] C:\Users\sande\.gradle\caches\transforms-3\7a9e722f9cadd913a07709114ac94695\transformed\webkit-1.5.0\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.android.gms:play-services-maps:18.1.0] C:\Users\sande\.gradle\caches\transforms-3\a0e34175b89fa528462076cc4208822f\transformed\jetified-play-services-maps-18.1.0\AndroidManifest.xml:17:1-44:12
 MERGED from [com.google.android.gms:play-services-base:18.0.1] C:\Users\sande\.gradle\caches\transforms-3\082fa8f1e076fd76c98f4d760b4e67b1\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:16:1-24:12
@@ -50,7 +57,6 @@ MERGED from [androidx.loader:loader:1.0.0] C:\Users\sande\.gradle\caches\transfo
 MERGED from [androidx.activity:activity:1.0.0] C:\Users\sande\.gradle\caches\transforms-3\252fc848d5aa6e267df5e6907a023aed\transformed\jetified-activity-1.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.customview:customview:1.0.0] C:\Users\sande\.gradle\caches\transforms-3\f4c2d181f9683c57f8970b9ce7785060\transformed\customview-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.core:core:1.9.0] C:\Users\sande\.gradle\caches\transforms-3\5f80b20db3afa86c72a9766b008d752d\transformed\core-1.9.0\AndroidManifest.xml:17:1-30:12
-MERGED from [androidx.core:core-ktx:1.9.0] C:\Users\sande\.gradle\caches\transforms-3\3e6c979ab8eca9aa1eeca6cb7cd9f261\transformed\jetified-core-ktx-1.9.0\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\sande\.gradle\caches\transforms-3\5b75d2e6479f13c5aed7d8001da507c0\transformed\jetified-tracing-1.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\sande\.gradle\caches\transforms-3\5abdc06e026f2f7b9b89c25dcd7a6d7e\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:17:1-27:12
 MERGED from [androidx.lifecycle:lifecycle-runtime:2.3.1] C:\Users\sande\.gradle\caches\transforms-3\76da31ad033c53187dd7271282d0f7d2\transformed\lifecycle-runtime-2.3.1\AndroidManifest.xml:17:1-24:12
@@ -91,16 +97,18 @@ INJECTED from C:\Flutter_practice\sahara\android\app\src\main\AndroidManifest.xm
 INJECTED from C:\Flutter_practice\sahara\android\app\src\main\AndroidManifest.xml
 MERGED from [:store_redirect] C:\Flutter_practice\sahara\build\store_redirect\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:store_redirect] C:\Flutter_practice\sahara\build\store_redirect\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:geolocator_android] C:\Flutter_practice\sahara\build\geolocator_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:geolocator_android] C:\Flutter_practice\sahara\build\geolocator_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:google_maps_flutter_android] C:\Flutter_practice\sahara\build\google_maps_flutter_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:google_maps_flutter_android] C:\Flutter_practice\sahara\build\google_maps_flutter_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:flutter_plugin_android_lifecycle] C:\Flutter_practice\sahara\build\flutter_plugin_android_lifecycle\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:flutter_plugin_android_lifecycle] C:\Flutter_practice\sahara\build\flutter_plugin_android_lifecycle\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:share_plus] C:\Flutter_practice\sahara\build\share_plus\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:share_plus] C:\Flutter_practice\sahara\build\share_plus\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
-MERGED from [:url_launcher_android] C:\Flutter_practice\sahara\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
-MERGED from [:url_launcher_android] C:\Flutter_practice\sahara\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:fluttertoast] C:\Flutter_practice\sahara\build\fluttertoast\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:fluttertoast] C:\Flutter_practice\sahara\build\fluttertoast\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:url_launcher_android] C:\Flutter_practice\sahara\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:url_launcher_android] C:\Flutter_practice\sahara\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:path_provider_android] C:\Flutter_practice\sahara\build\path_provider_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:path_provider_android] C:\Flutter_practice\sahara\build\path_provider_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:webview_flutter_android] C:\Flutter_practice\sahara\build\webview_flutter_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
@@ -109,6 +117,10 @@ MERGED from [androidx.window:window-java:1.0.0-beta04] C:\Users\sande\.gradle\ca
 MERGED from [androidx.window:window-java:1.0.0-beta04] C:\Users\sande\.gradle\caches\transforms-3\006d93cd422dbc43e89591147c2de572\transformed\jetified-window-java-1.0.0-beta04\AndroidManifest.xml:19:5-21:41
 MERGED from [androidx.window:window:1.0.0-beta04] C:\Users\sande\.gradle\caches\transforms-3\dee59bb480020f42d53c2ea15e4501f7\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.window:window:1.0.0-beta04] C:\Users\sande\.gradle\caches\transforms-3\dee59bb480020f42d53c2ea15e4501f7\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.gms:play-services-location:20.0.0] C:\Users\sande\.gradle\caches\transforms-3\feffbcdba9c9a3b2fe3311aa10f06032\transformed\jetified-play-services-location-20.0.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-location:20.0.0] C:\Users\sande\.gradle\caches\transforms-3\feffbcdba9c9a3b2fe3311aa10f06032\transformed\jetified-play-services-location-20.0.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-ktx:1.9.0] C:\Users\sande\.gradle\caches\transforms-3\3e6c979ab8eca9aa1eeca6cb7cd9f261\transformed\jetified-core-ktx-1.9.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-ktx:1.9.0] C:\Users\sande\.gradle\caches\transforms-3\3e6c979ab8eca9aa1eeca6cb7cd9f261\transformed\jetified-core-ktx-1.9.0\AndroidManifest.xml:5:5-44
 MERGED from [androidx.webkit:webkit:1.5.0] C:\Users\sande\.gradle\caches\transforms-3\7a9e722f9cadd913a07709114ac94695\transformed\webkit-1.5.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.webkit:webkit:1.5.0] C:\Users\sande\.gradle\caches\transforms-3\7a9e722f9cadd913a07709114ac94695\transformed\webkit-1.5.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-maps:18.1.0] C:\Users\sande\.gradle\caches\transforms-3\a0e34175b89fa528462076cc4208822f\transformed\jetified-play-services-maps-18.1.0\AndroidManifest.xml:20:5-44
@@ -131,8 +143,6 @@ MERGED from [androidx.customview:customview:1.0.0] C:\Users\sande\.gradle\caches
 MERGED from [androidx.customview:customview:1.0.0] C:\Users\sande\.gradle\caches\transforms-3\f4c2d181f9683c57f8970b9ce7785060\transformed\customview-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.core:core:1.9.0] C:\Users\sande\.gradle\caches\transforms-3\5f80b20db3afa86c72a9766b008d752d\transformed\core-1.9.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.core:core:1.9.0] C:\Users\sande\.gradle\caches\transforms-3\5f80b20db3afa86c72a9766b008d752d\transformed\core-1.9.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.core:core-ktx:1.9.0] C:\Users\sande\.gradle\caches\transforms-3\3e6c979ab8eca9aa1eeca6cb7cd9f261\transformed\jetified-core-ktx-1.9.0\AndroidManifest.xml:5:5-44
-MERGED from [androidx.core:core-ktx:1.9.0] C:\Users\sande\.gradle\caches\transforms-3\3e6c979ab8eca9aa1eeca6cb7cd9f261\transformed\jetified-core-ktx-1.9.0\AndroidManifest.xml:5:5-44
 MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\sande\.gradle\caches\transforms-3\5b75d2e6479f13c5aed7d8001da507c0\transformed\jetified-tracing-1.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\sande\.gradle\caches\transforms-3\5b75d2e6479f13c5aed7d8001da507c0\transformed\jetified-tracing-1.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\sande\.gradle\caches\transforms-3\5abdc06e026f2f7b9b89c25dcd7a6d7e\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
@@ -165,6 +175,20 @@ MERGED from [com.google.android.gms:play-services-maps:18.1.0] C:\Users\sande\.g
 MERGED from [com.google.android.gms:play-services-maps:18.1.0] C:\Users\sande\.gradle\caches\transforms-3\a0e34175b89fa528462076cc4208822f\transformed\jetified-play-services-maps-18.1.0\AndroidManifest.xml:24:5-67
 	android:name
 		ADDED from C:\Flutter_practice\sahara\android\app\src\debug\AndroidManifest.xml:7:22-64
+uses-permission#android.permission.FOREGROUND_SERVICE
+ADDED from [:geolocator_android] C:\Flutter_practice\sahara\build\geolocator_android\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-77
+	android:name
+		ADDED from [:geolocator_android] C:\Flutter_practice\sahara\build\geolocator_android\intermediates\merged_manifest\debug\AndroidManifest.xml:9:22-74
+service#com.baseflow.geolocator.GeolocatorLocationService
+ADDED from [:geolocator_android] C:\Flutter_practice\sahara\build\geolocator_android\intermediates\merged_manifest\debug\AndroidManifest.xml:12:9-16:56
+	android:enabled
+		ADDED from [:geolocator_android] C:\Flutter_practice\sahara\build\geolocator_android\intermediates\merged_manifest\debug\AndroidManifest.xml:14:13-35
+	android:exported
+		ADDED from [:geolocator_android] C:\Flutter_practice\sahara\build\geolocator_android\intermediates\merged_manifest\debug\AndroidManifest.xml:15:13-37
+	android:foregroundServiceType
+		ADDED from [:geolocator_android] C:\Flutter_practice\sahara\build\geolocator_android\intermediates\merged_manifest\debug\AndroidManifest.xml:16:13-53
+	android:name
+		ADDED from [:geolocator_android] C:\Flutter_practice\sahara\build\geolocator_android\intermediates\merged_manifest\debug\AndroidManifest.xml:13:13-77
 provider#dev.fluttercommunity.plus.share.ShareFileProvider
 ADDED from [:share_plus] C:\Flutter_practice\sahara\build\share_plus\intermediates\merged_manifest\debug\AndroidManifest.xml:15:9-23:20
 	android:grantUriPermissions
