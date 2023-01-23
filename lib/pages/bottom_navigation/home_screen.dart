@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sahara/pages/bottom_navigation/profile_screen.dart';
+import 'package:sahara/pages/screens/bike_screen.dart';
 import 'package:sahara/pages/screens/featured_restro.dart';
 import 'package:sahara/pages/screens/notification_screen.dart';
 import 'package:sahara/pages/widgets/carousel_slider.dart';
@@ -164,7 +165,10 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         imageAsset: Image.asset('lib/assets/sahara-bike.png'),
                         onTap: () {
-                          print("Bike");
+                          Navigator.push(
+                              (context),
+                              MaterialPageRoute(
+                                  builder: (context) => BikeRide()));
                         },
                       ),
                       SaharaServices(
@@ -205,7 +209,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         imageAsset: Image.asset('lib/assets/sahara-food.png'),
                         onTap: () {
-                          print("Food");
+                          _alertDialog(context);
                         },
                       )
                     ],
@@ -398,11 +402,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     height: 15,
                   ),
                   const Divider(
-                    height: 20,
+                    height: 2,
                     thickness: 0.75,
                     color: Colors.black12,
                   ),
                   ListTile(
+                    contentPadding: const EdgeInsets.symmetric(horizontal: 0),
                     onTap: () {
                       StoreRedirect.redirect(
                         androidAppId: 'com.businessgrowthcompany.superapprider',
@@ -431,11 +436,13 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                   const Divider(
-                    height: 20,
+                    height: 5,
                     thickness: 0.75,
                     color: Colors.black12,
                   ),
                   ListTile(
+                    contentPadding:
+                        const EdgeInsets.symmetric(horizontal: 0, vertical: 8),
                     onTap: () {
                       StoreRedirect.redirect(
                         androidAppId:
@@ -463,11 +470,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                   const Divider(
-                    height: 20,
+                    height: 5,
                     thickness: 0.75,
                     color: Colors.black12,
                   ),
                   ListTile(
+                    contentPadding: const EdgeInsets.symmetric(horizontal: 0),
                     leading: CircleAvatar(
                       radius: 21,
                       backgroundColor: Colors.black54,
@@ -498,4 +506,55 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
+}
+
+_alertDialog(BuildContext context) {
+  // Create AlertDialog
+  AlertDialog alert = AlertDialog(
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(30),
+    ),
+    titlePadding: EdgeInsets.all(0),
+    contentPadding: EdgeInsets.all(0),
+    title: ListTile(
+      tileColor: Theme.of(context).primaryColor,
+      title: Center(
+        child: Text(
+          'Service Alert !!!',
+          style: TextStyle(color: Colors.white, fontSize: 22),
+        ),
+      ),
+    ),
+    content: Container(
+      height: MediaQuery.of(context).size.height * 0.15,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          Padding(padding: EdgeInsets.all(15)),
+          Text(
+            "Coming Soon!! Stay Updated!!",
+            style: TextStyle(fontSize: 18),
+          ),
+          TextButton(
+              style: TextButton.styleFrom(
+                  backgroundColor: Theme.of(context).primaryColor),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Text(
+                "Ok",
+                style: TextStyle(color: Colors.white),
+              ))
+        ],
+      ),
+    ),
+  );
+
+  // show the dialog
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
+  );
 }
