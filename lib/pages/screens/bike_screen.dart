@@ -1,11 +1,11 @@
-import 'dart:js';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:sahara/pages/bottom_navigation/profile_screen.dart';
+import 'package:sahara/pages/screens/search_location_screen.dart';
+import 'package:sliding_up_panel/sliding_up_panel.dart';
 
 class BikeRide extends StatefulWidget {
   const BikeRide({super.key});
@@ -15,6 +15,9 @@ class BikeRide extends StatefulWidget {
 }
 
 class _BikeRideState extends State<BikeRide> {
+  static const double heightClosed = 195;
+  double height = heightClosed;
+
   late GoogleMapController mapController;
 
   LatLng? _currentPosition;
@@ -69,7 +72,7 @@ class _BikeRideState extends State<BikeRide> {
                     ),
                     markers: {
                       Marker(
-                        markerId: MarkerId('value'),
+                        markerId: const MarkerId('value'),
                         position: _currentPosition!,
                       )
                     },
@@ -113,7 +116,163 @@ class _BikeRideState extends State<BikeRide> {
                     ),
                   ],
                 )),
-          ],
+            //location icon
+            Positioned(right: 15, bottom: height, child: LocationButton()),
+            SlidingUpPanel(
+                boxShadow: [BoxShadow(blurRadius: 0)],
+                defaultPanelState: PanelState.OPEN,
+                maxHeight: MediaQuery.of(context).size.height * 0.25,
+                minHeight: MediaQuery.of(context).size.height * 0.0,
+                onPanelSlide: (position) => setState(() {
+                      final panelMaxScrollExtent =
+                          heightClosed - height + heightClosed;
+
+                      height = position * panelMaxScrollExtent;
+                    }),
+                borderRadius: BorderRadius.vertical(top: Radius.circular(15)),
+                panelBuilder: (controller) =>
+                    PanelWidget(controller: controller)),
+],
+        ),
+      ),
+    );
+  }
+}
+
+class LocationButton extends StatelessWidget {
+  const LocationButton({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return FloatingActionButton.small(
+      backgroundColor: Colors.white,
+      child: Icon(
+        Icons.gps_fixed,
+        color: Colors.black,
+      ),
+      onPressed: () {},
+    );
+  }
+}
+
+class PanelWidget extends StatelessWidget {
+  final ScrollController controller;
+  const PanelWidget({super.key, required this.controller});
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView(
+      controller: controller,
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 12),
+          child: GestureDetector(
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) =>
+                          SearchLocation(text: 'Confirm pickup location')));
+            },
+            child: TextFormField(
+              enabled: false,
+              decoration: InputDecoration(
+                contentPadding: EdgeInsets.all(8),
+                prefixIcon: Icon(Icons.person_pin_circle_sharp),
+                suffixIcon: Icon(
+                  Icons.search,
+                  color: Colors.black38,
+                ),
+                labelText: 'Pickup Location',
+                hintStyle: TextStyle(color: Colors.grey),
+                disabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(5),
+                    borderSide: BorderSide(
+                      color: Colors.black38,
+                      width: 2,
+                    )),
+              ),
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 25),
+          child: GestureDetector(
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) =>
+                          SearchLocation(text: 'Confirm dropoff location')));
+            },
+            child: TextFormField(
+              enabled: false,
+              decoration: InputDecoration(
+                contentPadding: EdgeInsets.all(8),
+                suffixIcon: Icon(Icons.search),
+                prefixIcon: Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Container(
+                    child: Icon(
+                      Icons.location_on_sharp,
+                      size: 17,
+                      color: Colors.white,
+                    ),
+                    decoration: BoxDecoration(
+                        color: Theme.of(context).primaryColor,
+                        shape: BoxShape.circle),
+                  ),
+                ),
+                labelText: 'Search Dropoff location',
+                hintStyle: TextStyle(color: Colors.grey),
+                disabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(5),
+                    borderSide: BorderSide(
+                      color: Colors.black38,
+                      width: 2,
+                    )),
+              ),
+            ),
+          ),
+        )
+      ],
+    );
+  }
+}
+
+class SearchBar extends StatelessWidget {
+  final Widget icon;
+  final String text;
+  const SearchBar({super.key, required this.icon, required this.text});
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+            (context),
+            MaterialPageRoute(
+                builder: (context) => SearchLocation(
+                      text: 'Confirm pickup location',
+                    )));
+      },
+      child: TextFormField(
+        enabled: false,
+        decoration: InputDecoration(
+          contentPadding: EdgeInsets.all(8),
+          prefixIcon: icon,
+          suffixIcon: Icon(
+            Icons.search,
+            color: Colors.black38,
+          ),
+          labelText: text,
+          hintStyle: TextStyle(color: Colors.grey),
+          disabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(5),
+              borderSide: BorderSide(
+                color: Colors.black38,
+                width: 2,
+              )),
         ),
       ),
     );

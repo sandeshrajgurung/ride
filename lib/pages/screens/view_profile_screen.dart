@@ -20,7 +20,10 @@ class _ViewProfileState extends State<ViewProfile> {
         ),
         elevation: 0,
         backgroundColor: Theme.of(context).primaryColor,
-        title: Text("Profile"),
+        title: Text(
+          "Profile",
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
         actions: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15.0),
@@ -32,7 +35,7 @@ class _ViewProfileState extends State<ViewProfile> {
                 ),
                 Text(
                   "Logout",
-                  style: TextStyle(fontSize: 12),
+                  style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
                 )
               ],
             ),
@@ -105,7 +108,7 @@ class TxtField extends StatelessWidget {
       children: [
         Text(
           label,
-          style: TextStyle(fontSize: 16),
+          style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
         ),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 10.0),
@@ -119,8 +122,9 @@ class TxtField extends StatelessWidget {
                 ),
                 label: Text(
                   labelField,
-                  style:
-                      const TextStyle(fontFamily: "sans", color: Colors.black),
+                  style: const TextStyle(
+                    color: Colors.black,
+                  ),
                 )),
           ),
         ),

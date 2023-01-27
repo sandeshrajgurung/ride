@@ -24,7 +24,10 @@ class _HistoryScreenState extends State<HistoryScreen> {
                       padding: const EdgeInsets.symmetric(horizontal: 15.0),
                       child: Text(
                         "History",
-                        style: TextStyle(fontSize: 24),
+                        style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                     Padding(
@@ -91,7 +94,11 @@ class __RideScreenState extends State<_RideScreen> {
               children: [
                 Text(
                   "Show only Cancelled rides",
-                  style: TextStyle(fontSize: 20, height: 2.1),
+                  style: TextStyle(
+                    fontSize: 20,
+                    height: 2.1,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
                 Switch.adaptive(
                     activeColor: Theme.of(context).primaryColor,

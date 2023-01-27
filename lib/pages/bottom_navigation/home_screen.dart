@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:sahara/pages/bottom_navigation/profile_screen.dart';
 import 'package:sahara/pages/screens/bike_screen.dart';
 import 'package:sahara/pages/screens/featured_restro.dart';
 import 'package:sahara/pages/screens/notification_screen.dart';
+import 'package:sahara/pages/screens/search_location_screen.dart';
 import 'package:sahara/pages/widgets/carousel_slider.dart';
 import 'package:sahara/pages/widgets/services.dart';
 import 'package:share_plus/share_plus.dart';
@@ -150,7 +152,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: [
                   const Text(
                     "Sahara Services",
-                    style: TextStyle(fontSize: 20, color: Colors.black),
+                    style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(
                     height: 20,
@@ -161,7 +166,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       SaharaServices(
                         text: Text(
                           'Bike',
-                          style: TextStyle(),
+                          style: TextStyle(fontWeight: FontWeight.bold),
                         ),
                         imageAsset: Image.asset('lib/assets/sahara-bike.png'),
                         onTap: () {
@@ -174,11 +179,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       SaharaServices(
                         text: Text(
                           'Cab',
-                          style: TextStyle(),
+                          style: TextStyle(fontWeight: FontWeight.bold),
                         ),
                         imageAsset: Image.asset('lib/assets/sahara-cab.png'),
                         onTap: () {
-                          print("Cab");
+                          Navigator.push(
+                              (context),
+                              MaterialPageRoute(
+                                  builder: (context) => BikeRide()));
                         },
                       )
                     ],
@@ -189,23 +197,70 @@ class _HomeScreenState extends State<HomeScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      SaharaServices(
-                        text: const Text(
-                          'Bus',
-                          style: TextStyle(),
+                      Stack(alignment: Alignment.center, children: [
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                (context),
+                                MaterialPageRoute(
+                                    builder: (context) => BikeRide()));
+                          },
+                          child: Container(
+                            width: 150,
+                            height: 95,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                color: Colors.white,
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.grey.shade400,
+                                    spreadRadius: 1,
+                                    blurRadius: 4,
+                                    offset: const Offset(0, 2),
+                                  )
+                                ]),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Container(
+                                    height: 60,
+                                    width: 60,
+                                    child: Image.asset(
+                                      'lib/assets/sahara-bus.png',
+                                      fit: BoxFit.contain,
+                                    )),
+                                Container(
+                                    padding: EdgeInsets.all(2),
+                                    width: 80,
+                                    decoration: BoxDecoration(
+                                        color: Theme.of(context).primaryColor,
+                                        borderRadius:
+                                            BorderRadius.circular(15)),
+                                    child: const Text(
+                                      "Bargaining",
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                          fontSize: 12,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold),
+                                    ))
+                              ],
+                            ),
+                          ),
                         ),
-                        imageAsset: Image.asset(
-                          'lib/assets/sahara-bus.png',
-                          fit: BoxFit.contain,
-                        ),
-                        onTap: () {
-                          print("Bus");
-                        },
-                      ),
+                        SizedBox(
+                          height: 55,
+                          width: 70,
+                          child: Center(
+                            child: Lottie.network(
+                                'https://lottie.host/58f2ea03-56b9-4ba6-8be8-1b55bde16f40/omX0FgJoJT.json'),
+                          ),
+                        )
+                      ]),
                       SaharaServices(
                         text: const Text(
                           'Food',
-                          style: TextStyle(),
+                          style: TextStyle(fontWeight: FontWeight.bold),
                         ),
                         imageAsset: Image.asset('lib/assets/sahara-food.png'),
                         onTap: () {
@@ -220,6 +275,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   const Text(
                     "Where do you want to go?",
                     style: TextStyle(
+                      fontWeight: FontWeight.bold,
                       fontSize: 18,
                     ),
                   ),
@@ -228,7 +284,14 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   //search bar
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => SearchLocation(
+                                    text: 'Confirm dropoff location',
+                                  )));
+                    },
                     child: Container(
                       padding: EdgeInsets.all(10),
                       height: 50,
@@ -278,6 +341,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   const Text(
                     "What's Trending",
                     style: TextStyle(
+                      fontWeight: FontWeight.bold,
                       fontSize: 18,
                     ),
                   ),
@@ -304,6 +368,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       Text(
                         "Featured Restaurants",
                         style: TextStyle(
+                          fontWeight: FontWeight.bold,
                           fontSize: 18,
                         ),
                       ),
@@ -317,6 +382,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: Text(
                           "All",
                           style: TextStyle(
+                            fontWeight: FontWeight.bold,
                             color: Theme.of(context).primaryColor,
                             fontSize: 18,
                           ),
@@ -341,6 +407,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   const Text(
                     "Refer & Earn",
                     style: TextStyle(
+                      fontWeight: FontWeight.bold,
                       fontSize: 18,
                     ),
                   ),
@@ -425,11 +492,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     title: Text(
                       'Sahara Ride Partner',
+                      style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                     subtitle: Text(
                       'Earn money becoming Sahara Rider Partner',
                       style: TextStyle(
-                        fontFamily: 'sans',
                         color: Colors.black54,
                         fontSize: 12,
                       ),
@@ -459,11 +526,13 @@ class _HomeScreenState extends State<HomeScreen> {
                             'https://png.pngtree.com/element_origin_min_pic/17/03/20/59570755b50b18e42aec393f98dde858.jpg'),
                       ),
                     ),
-                    title: Text('Sahara Restaurant Partner'),
+                    title: Text(
+                      'Sahara Restaurant Partner',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
                     subtitle: Text(
                       'Increase your online sale joining SaharaRestro partner',
                       style: TextStyle(
-                        fontFamily: 'sans',
                         color: Colors.black54,
                         fontSize: 12,
                       ),
@@ -485,11 +554,13 @@ class _HomeScreenState extends State<HomeScreen> {
                             'https://png.pngtree.com/element_origin_min_pic/17/03/20/59570755b50b18e42aec393f98dde858.jpg'),
                       ),
                     ),
-                    title: Text('Sahara Support'),
+                    title: Text(
+                      'Sahara Support',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
                     subtitle: Text(
                       'Get Quick resolution on queries related to Sahara',
                       style: TextStyle(
-                        fontFamily: 'sans',
                         color: Colors.black54,
                         fontSize: 12,
                       ),

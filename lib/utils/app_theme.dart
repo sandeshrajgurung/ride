@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 class AppThemes {
   static ThemeData themeData() {
     return ThemeData(
-      fontFamily: 'Biotif',
+      fontFamily: 'product-sans' ,
       primaryColor: const Color(0xFFF50000),
       textTheme: const TextTheme(
         headlineMedium: TextStyle(color: Colors.black),

@@ -48,7 +48,6 @@ class _PromoScreenState extends State<PromoScreen> {
                           Text(
                             'Exp date:${promo.expiryDate}',
                             style: const TextStyle(
-                                fontFamily: "sans",
                                 color: Colors.black,
                                 fontSize: 14,
                                 wordSpacing: -1),

@@ -1,6 +1,4 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:sahara/pages/bottom_navigation/home_screen.dart';
 import 'package:sahara/pages/bottom_navigation/main_page.dart';
 import 'package:sahara/pages/screens/forgot_password.dart';
 
@@ -93,7 +91,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                 .textTheme
                                 .headlineSmall!
                                 .color,
-                            fontSize: 14),
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold),
                         focusedBorder: OutlineInputBorder(
                           borderSide: BorderSide(
                               color: Theme.of(context).primaryColor, width: 2),
@@ -139,7 +138,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     labelText: 'password',
                     labelStyle: TextStyle(
                         color: Theme.of(context).textTheme.headlineSmall!.color,
-                        fontSize: 14),
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold),
                     focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(
                           color: Theme.of(context).primaryColor, width: 2),
@@ -163,7 +163,10 @@ class _LoginScreenState extends State<LoginScreen> {
                       backgroundColor: Theme.of(context).primaryColor,
                     ),
                     onPressed: _saveForm,
-                    child: Text("Login"),
+                    child: Text(
+                      "Login",
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
                   ),
                 ),
                 Center(

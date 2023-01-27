@@ -118,13 +118,16 @@ class _EditProfileState extends State<EditProfile> {
             ),
             Text(
               "Select your gender",
-              style: TextStyle(fontSize: 16),
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
                 Radio(
-                  // activeColor: Theme.of(context).primaryColor,
+                  activeColor: Theme.of(context).primaryColor,
+                  fillColor: MaterialStateColor.resolveWith(
+                    (states) => Theme.of(context).primaryColor,
+                  ),
                   value: 1,
                   groupValue: id,
                   onChanged: (val) {
@@ -136,7 +139,8 @@ class _EditProfileState extends State<EditProfile> {
                 ),
                 Text(
                   'Male',
-                  style: new TextStyle(fontSize: 14.0),
+                  style: new TextStyle(
+                      fontSize: 14.0, fontWeight: FontWeight.bold),
                 ),
                 Radio(
                   value: 2,
@@ -151,6 +155,7 @@ class _EditProfileState extends State<EditProfile> {
                 Text(
                   'Female',
                   style: new TextStyle(
+                    fontWeight: FontWeight.bold,
                     fontSize: 14.0,
                   ),
                 ),
@@ -166,7 +171,8 @@ class _EditProfileState extends State<EditProfile> {
                 ),
                 Text(
                   'Others',
-                  style: new TextStyle(fontSize: 14.0),
+                  style: new TextStyle(
+                      fontSize: 14.0, fontWeight: FontWeight.bold),
                 ),
               ],
             ),

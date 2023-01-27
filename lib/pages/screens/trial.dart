@@ -1,80 +1,120 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-
-class CustomIndicator extends StatefulWidget {
-  @override
-  State<StatefulWidget> createState() {
-    return CustomIndicatorState();
-  }
+import 'package:flutter_polyline_points/flutter_polyline_points.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+void main(){
+  runApp(MyApp());
 }
 
-class CustomIndicatorState extends State<CustomIndicator> {
-  int currentPos = 0;
-  List<String> listPaths = [
-    "lib/assets/restro0.jpg",
-    "lib/assets/restro1.jpg",
-    "lib/assets/restro2.jpg",
-    "lib/assets/restro3.jpg",
-  ];
-
+class MyApp extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        color: Colors.green,
-        height: 300,
-        child: Stack(
-          alignment: Alignment.bottomCenter,
-          children: [
-            CarouselSlider.builder(
-              itemCount: listPaths.length,
-              options: CarouselOptions(
-                  autoPlay: true,
-                  onPageChanged: (index, reason) {
-                    setState(() {
-                      currentPos = index;
-                    });
-                  }),
-              itemBuilder: (context, index, _) {
-                return MyImageView(listPaths[index]);
-              },
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: listPaths.map((url) {
-                int index = listPaths.indexOf(url);
-                return Container(
-                  width: 8.0,
-                  height: 8.0,
-                  margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 2.0),
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: currentPos == index
-                        ? Color.fromRGBO(0, 0, 0, 0.9)
-                        : Color.fromRGBO(0, 0, 0, 0.4),
-                  ),
-                );
-              }).toList(),
-            ),
-          ],
-        ),
-      ),
+    return MaterialApp(
+      home: Home(),
     );
   }
 }
 
-class MyImageView extends StatelessWidget {
-  String imgPath;
+class Home extends StatefulWidget{
+  @override
+  _HomeState createState() => _HomeState();
+}
 
-  MyImageView(this.imgPath);
+class _HomeState extends State<Home> {
+
+  GoogleMapController? mapController; //contrller for Google map
+  PolylinePoints polylinePoints = PolylinePoints();
+
+  String googleAPiKey = "GOOGLE MAP API KEY";
+  
+  Set<Marker> markers = Set(); //markers for google map
+  Map<PolylineId, Polyline> polylines = {}; //polylines to show direction
+
+  LatLng startLocation = LatLng(27.6683619, 85.3101895);  
+  LatLng endLocation = LatLng(27.6688312, 85.3077329); 
+                            
 
   @override
+  void initState() {
+
+     markers.add(Marker( //add start location marker
+        markerId: MarkerId(startLocation.toString()),
+        position: startLocation, //position of marker
+        infoWindow: InfoWindow( //popup info 
+          title: 'Starting Point ',
+          snippet: 'Start Marker',
+        ),
+        icon: BitmapDescriptor.defaultMarker, //Icon for Marker
+      ));
+
+      markers.add(Marker( //add distination location marker
+        markerId: MarkerId(endLocation.toString()),
+        position: endLocation, //position of marker
+        infoWindow: InfoWindow( //popup info 
+          title: 'Destination Point ',
+          snippet: 'Destination Marker',
+        ),
+        icon: BitmapDescriptor.defaultMarker, //Icon for Marker
+      ));
+      
+      getDirections(); //fetch direction polylines from Google API
+      
+    super.initState();
+  }
+
+  getDirections() async {
+      List<LatLng> polylineCoordinates = [];
+     
+      PolylineResult result = await polylinePoints.getRouteBetweenCoordinates(
+          googleAPiKey,
+          PointLatLng(startLocation.latitude, startLocation.longitude),
+          PointLatLng(endLocation.latitude, endLocation.longitude),
+          travelMode: TravelMode.driving,
+      );
+
+      if (result.points.isNotEmpty) {
+            result.points.forEach((PointLatLng point) {
+                polylineCoordinates.add(LatLng(point.latitude, point.longitude));
+            });
+      } else {
+         print(result.errorMessage);
+      }
+      addPolyLine(polylineCoordinates);
+  }
+
+  addPolyLine(List<LatLng> polylineCoordinates) {
+    PolylineId id = PolylineId("poly");
+    Polyline polyline = Polyline(
+      polylineId: id,
+      color: Colors.deepPurpleAccent,
+      points: polylineCoordinates,
+      width: 8,
+    );
+    polylines[id] = polyline;
+    setState(() {});
+  }
+  
+  @override
   Widget build(BuildContext context) {
-    return Container(
-        margin: EdgeInsets.symmetric(horizontal: 5),
-        child: FittedBox(
-          fit: BoxFit.fill,
-          child: Image.asset(imgPath),
-        ));
+    return  Scaffold(
+          appBar: AppBar( 
+             title: Text("Route Driection in Google Map"),
+             backgroundColor: Colors.deepPurpleAccent,
+          ),
+          body: GoogleMap( //Map widget from google_maps_flutter package
+                    zoomGesturesEnabled: true, //enable Zoom in, out on map
+                    initialCameraPosition: CameraPosition( //innital position in map
+                      target: startLocation, //initial position
+                      zoom: 16.0, //initial zoom level
+                    ),
+                    markers: markers, //markers to show on map
+                    polylines: Set<Polyline>.of(polylines.values), //polylines
+                    mapType: MapType.normal, //map type
+                    onMapCreated: (controller) { //method called when map is created
+                      setState(() {
+                        mapController = controller; 
+                      });
+                    },
+              ),
+       );
   }
 }

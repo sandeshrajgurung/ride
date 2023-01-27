@@ -31,7 +31,7 @@ class _SignupScreenState extends State<SignupScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Container(
+                SizedBox(
                   child: Image.asset(
                     'lib/assets/sahara-logo.png',
                     height: 170,
@@ -75,7 +75,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     },
                     // style: TextStyle(fontSize: 10),
                     decoration: InputDecoration(
-                        contentPadding: EdgeInsets.all(17),
+                        contentPadding: const EdgeInsets.all(17),
                         labelText: 'Phone Number',
                         labelStyle: TextStyle(
                             color: Theme.of(context)
@@ -109,7 +109,10 @@ class _SignupScreenState extends State<SignupScreen> {
                       backgroundColor: Theme.of(context).primaryColor,
                     ),
                     onPressed: _saveForm,
-                    child: Text("Continue"),
+                    child: Text(
+                      "Continue",
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
                   ),
                 ),
                 const SizedBox(
@@ -130,7 +133,10 @@ class _SignupScreenState extends State<SignupScreen> {
                     // ),
                     onPressed: () {},
                     icon: const Icon(Icons.facebook_rounded),
-                    label: const Text("Continue with facebook"),
+                    label: const Text(
+                      "Continue with facebook",
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
                   ),
                 ),
               ],

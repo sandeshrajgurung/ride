@@ -102,7 +102,7 @@ _showAlertDialog(BuildContext context) {
     ),
     content: const Text(
       "Are You sure you want to clear all notifications?",
-      style: TextStyle(fontFamily: "sans", color: Colors.black38),
+      style: TextStyle(color: Colors.black38),
     ),
     actions: [
       noButton,

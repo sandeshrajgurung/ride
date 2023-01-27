@@ -56,11 +56,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           children: [
                             Text(
                               "Sandesh Grg",
-                              style: TextStyle(fontSize: 18),
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                             Text(
                               "View profile",
-                              style: TextStyle(fontSize: 14),
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ],
                         )
@@ -79,7 +85,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     children: [
                       const Text(
                         "ACCOUNT",
-                        style: TextStyle(fontSize: 16),
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                       ListTile(
                         visualDensity:
@@ -91,14 +100,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           text: const TextSpan(
                             text: 'SaharaPrime ',
                             style: TextStyle(
-                                fontFamily: 'Biotif',
+                                fontWeight: FontWeight.bold,
                                 fontSize: 16,
                                 color: Colors.black),
                             children: <TextSpan>[
                               TextSpan(
                                   text: '(Coming Soon!)',
                                   style: TextStyle(
-                                      fontFamily: "sans",
                                       fontStyle: FontStyle.italic,
                                       fontSize: 12,
                                       color: Colors.black45)),
@@ -120,7 +128,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     children: [
                       Text(
                         "OFFERS",
-                        style: TextStyle(fontSize: 16),
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                       ListTile(
                         visualDensity:
@@ -133,7 +144,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           image: NetworkImage(
                               'https://www.ezyeat.net/uploads/6aef6d9e1f6d9d9f3ded8f113dffd64c.png'),
                         ),
-                        title: Text("Promo Code"),
+                        title: Text(
+                          "Promo Code",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
                         onTap: () => Navigator.push(
                             (context),
                             MaterialPageRoute(
@@ -152,7 +168,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           contentPadding: EdgeInsets.symmetric(horizontal: 0),
                           horizontalTitleGap: 5,
                           leading: Icon(Icons.group_add),
-                          title: Text("Refer & Earn")),
+                          title: Text(
+                            "Refer & Earn",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                            ),
+                          )),
                     ],
                   ),
                 ),
@@ -167,7 +188,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     children: [
                       Text(
                         "SUPPORT & FEEDBACK",
-                        style: TextStyle(fontSize: 16),
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                       ListTile(
                           onTap: () {
@@ -178,7 +202,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           contentPadding: EdgeInsets.symmetric(horizontal: 0),
                           horizontalTitleGap: 5,
                           leading: Icon(Icons.record_voice_over),
-                          title: Text("Support")),
+                          title: Text(
+                            "Support",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                            ),
+                          )),
                       Divider(
                         height: 1,
                       ),
@@ -192,7 +221,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           contentPadding: EdgeInsets.symmetric(horizontal: 0),
                           horizontalTitleGap: 5,
                           leading: Icon(Icons.forum),
-                          title: Text("Feedback")),
+                          title: Text(
+                            "Feedback",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                            ),
+                          )),
                     ],
                   ),
                 ),
@@ -207,7 +241,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     children: [
                       Text(
                         "SETTINGS",
-                        style: TextStyle(fontSize: 16),
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                       ListTile(
                         visualDensity:
@@ -215,7 +252,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         contentPadding: EdgeInsets.symmetric(horizontal: 0),
                         horizontalTitleGap: 5,
                         leading: Icon(Icons.language),
-                        title: Text("Change language"),
+                        title: Text(
+                          "Change language",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
                         onTap: () => _languageDiaogue(context),
                       ),
                       Divider(
@@ -227,7 +269,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         contentPadding: EdgeInsets.symmetric(horizontal: 0),
                         horizontalTitleGap: 5,
                         leading: Icon(Icons.lock),
-                        title: Text("change password"),
+                        title: Text(
+                          "change password",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
                         onTap: () => _passwordDiaogue(context),
                       ),
                     ],
@@ -244,19 +291,26 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     children: [
                       Text(
                         "GENERAL",
-                        style: TextStyle(fontSize: 16),
+                        style: TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.bold),
                       ),
                       ListTile(
-                          onTap: () {
-                            Navigator.push(
-                                (context),
-                                MaterialPageRoute(
-                                    builder: (context) => AboutScreen()));
-                          },
-                          contentPadding: EdgeInsets.symmetric(horizontal: 0),
-                          horizontalTitleGap: 5,
-                          leading: Icon(Icons.apps),
-                          title: Text("About Us")),
+                        onTap: () {
+                          Navigator.push(
+                              (context),
+                              MaterialPageRoute(
+                                  builder: (context) => AboutScreen()));
+                        },
+                        contentPadding: EdgeInsets.symmetric(horizontal: 0),
+                        horizontalTitleGap: 5,
+                        leading: Icon(Icons.apps),
+                        title: Text(
+                          "About Us",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
                       ListTile(
                           onTap: () async {
                             final Uri url = Uri.parse(
@@ -271,18 +325,27 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           contentPadding: EdgeInsets.symmetric(horizontal: 0),
                           horizontalTitleGap: 5,
                           leading: Icon(Icons.policy),
-                          title: Text("Terms and condition")),
+                          title: Text(
+                            "Terms and condition",
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          )),
                       ListTile(
-                          onTap: () => Fluttertoast.showToast(
-                              msg: 'Rate is completed',
-                              toastLength: Toast.LENGTH_SHORT,
-                              gravity: ToastGravity.BOTTOM,
-                              backgroundColor: Colors.grey.withOpacity(0.2),
-                              textColor: Colors.black),
-                          contentPadding: EdgeInsets.symmetric(horizontal: 0),
-                          horizontalTitleGap: 5,
-                          leading: Icon(Icons.star),
-                          title: Text("Rate Sahara")),
+                        onTap: () => Fluttertoast.showToast(
+                            msg: 'Rate is completed',
+                            toastLength: Toast.LENGTH_SHORT,
+                            gravity: ToastGravity.BOTTOM,
+                            backgroundColor: Colors.grey.withOpacity(0.2),
+                            textColor: Colors.black),
+                        contentPadding: EdgeInsets.symmetric(horizontal: 0),
+                        horizontalTitleGap: 5,
+                        leading: Icon(Icons.star),
+                        title: Text(
+                          "Rate Sahara",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
                       ListTile(
                           onTap: () async {
                             final Uri url = Uri.parse(
@@ -297,7 +360,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           contentPadding: EdgeInsets.symmetric(horizontal: 0),
                           horizontalTitleGap: 5,
                           leading: Icon(Icons.facebook_rounded),
-                          title: Text("Facebook")),
+                          title: Text(
+                            "Facebook",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                            ),
+                          )),
                       ListTile(
                           onTap: () async {
                             final Uri url = Uri.parse(
@@ -316,7 +384,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               width: 22,
                               image: NetworkImage(
                                   'https://www.pngfind.com/pngs/m/237-2378905_ig-png-logo-svg-transparent-instagram-logo-png.png')),
-                          title: Text("Instagram")),
+                          title: Text(
+                            "Instagram",
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          )),
                     ],
                   ),
                 ),
@@ -338,7 +409,7 @@ supportDialog(BuildContext context) {
       tileColor: Theme.of(context).primaryColor,
       title: Text(
         'Support',
-        style: TextStyle(color: Colors.white),
+        style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
       ),
       trailing: IconButton(
           onPressed: () {
@@ -496,7 +567,7 @@ _passwordDiaogue(BuildContext context) {
           )),
     ),
     content: Container(
-      height: MediaQuery.of(context).size.height * 0.40,
+      height: MediaQuery.of(context).size.height * 0.41,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [

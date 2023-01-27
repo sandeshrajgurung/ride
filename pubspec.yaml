@@ -48,6 +48,9 @@ dependencies:
   google_maps_flutter: ^2.2.3
   geolocator: ^9.0.2
   latlong2: ^0.8.1
+  sliding_up_panel: ^2.0.0+1
+  flutter_polyline_points: ^1.0.0
+  lottie: ^2.2.0
 
 dev_dependencies:
   flutter_test:
@@ -90,9 +93,10 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: Biotif
+    - family: product-sans
       fonts:
-        - asset: lib/fonts/Biotif-Bold.ttf
+        - asset: lib/fonts/Product-Sans-Regular.ttf
+        - asset: lib/fonts/Product-Sans-Bold.ttf
   #         style: italic
   #   - family: Trajan Pro
   #     fonts:

@@ -108,3 +108,18 @@ final List<Restaurant> restaurants = [
   _restaurant2,
   _restaurant3,
 ];
+
+class Location {
+  final String address;
+
+  const Location({required this.address});
+}
+
+const allLocations = [
+  Location(address: 'Golfutar Stop, Golphutar, BudhanilKantha NagarPalika, Kathmandu'),
+  Location(address: 'Hattigauda, Kathmandu'),
+  Location(address: 'Milijuli Tol, Kathmandu, Kathmandu'),
+  Location(address: 'Narayan Gopal chowk, Kathmandu'),
+  Location(address: 'Bhatbateni, Narayan Gopal chowk, Kathmandu'),
+  Location(address: 'Basundhara Stop, Kathmandu'),
+];

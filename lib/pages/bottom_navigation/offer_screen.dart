@@ -24,8 +24,11 @@ class _OffersScreenState extends State<OffersScreen> {
               indicatorColor: Theme.of(context).primaryColor,
               indicatorWeight: 2.75,
               tabs: const [
-                Text('HOW TO?'),
-                Text('OFFERS'),
+                Text(
+                  'HOW TO?',
+                  style: TextStyle(fontWeight: FontWeight.w600),
+                ),
+                Text('OFFERS', style: TextStyle(fontWeight: FontWeight.w600)),
               ]),
         ),
         body: TabBarView(children: [
@@ -66,6 +69,7 @@ class _HowToTab extends StatelessWidget {
               const Text(
                 "How to Apply Promo Code",
                 style: TextStyle(
+                  fontWeight: FontWeight.bold,
                   fontSize: 16,
                 ),
               ),
@@ -73,7 +77,6 @@ class _HowToTab extends StatelessWidget {
               const Text(
                 "Hello Everyone! Here's an easy way to apply a promo code for your Sahara ride! Ride fast, Ride safe, Ride cheaper!",
                 style: TextStyle(
-                  fontFamily: "sans",
                   fontSize: 14,
                 ),
               ),
@@ -99,7 +102,10 @@ class _HowToTab extends StatelessWidget {
                       },
                       child: Text(
                         "WATCH NOW",
-                        style: TextStyle(fontSize: 12),
+                        style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.bold,
+                        ),
                       )),
                 ),
               ),
@@ -122,6 +128,7 @@ class _HowToTab extends StatelessWidget {
               const Text(
                 "Book Without Internet Connection!!",
                 style: TextStyle(
+                  fontWeight: FontWeight.bold,
                   fontSize: 16,
                 ),
               ),
@@ -129,7 +136,6 @@ class _HowToTab extends StatelessWidget {
               const Text(
                 "You can Book SaharaRide without internet connection: OPen Sahara when you have No Internet. A Dialog Box will open Fill up everything and Press Book, A message box will open in your phone just send the message You will recieve a confirmation call for booking ",
                 style: TextStyle(
-                  fontFamily: "sans",
                   fontSize: 14,
                 ),
               ),
@@ -155,7 +161,10 @@ class _HowToTab extends StatelessWidget {
                       },
                       child: Text(
                         "WATCH NOW",
-                        style: TextStyle(fontSize: 12),
+                        style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.bold,
+                        ),
                       )),
                 ),
               ),
@@ -178,6 +187,7 @@ class _HowToTab extends StatelessWidget {
               const Text(
                 "Booking for others !!",
                 style: TextStyle(
+                  fontWeight: FontWeight.bold,
                   fontSize: 16,
                 ),
               ),
@@ -185,7 +195,6 @@ class _HowToTab extends StatelessWidget {
               const Text(
                 "There are two ways you can book SaharaRide. You can get ride for yourself or you can get ride for others from your Sahara Before you Confirm your Ride: Choose Booking for Others then Enter the name and Phone Number of the person you are booking for.",
                 style: TextStyle(
-                  fontFamily: "sans",
                   fontSize: 14,
                 ),
               ),
@@ -211,7 +220,10 @@ class _HowToTab extends StatelessWidget {
                       },
                       child: Text(
                         "WATCH NOW",
-                        style: TextStyle(fontSize: 12),
+                        style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.bold,
+                        ),
                       )),
                 ),
               ),
@@ -234,6 +246,7 @@ class _HowToTab extends StatelessWidget {
               const Text(
                 "How to take a Sahara Ride?",
                 style: TextStyle(
+                  fontWeight: FontWeight.bold,
                   fontSize: 16,
                 ),
               ),
@@ -241,7 +254,6 @@ class _HowToTab extends StatelessWidget {
               const Text(
                 "Watch this video to know how to take Sahara Ride in simple 3 steps.",
                 style: TextStyle(
-                  fontFamily: "sans",
                   fontSize: 14,
                 ),
               ),
@@ -267,7 +279,10 @@ class _HowToTab extends StatelessWidget {
                       },
                       child: Text(
                         "WATCH NOW",
-                        style: TextStyle(fontSize: 12),
+                        style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.bold,
+                        ),
                       )),
                 ),
               ),
@@ -316,6 +331,7 @@ class __OfferTabState extends State<_OfferTab> {
               const Text(
                 "Ride and Win Offer !!",
                 style: TextStyle(
+                  fontWeight: FontWeight.bold,
                   fontSize: 16,
                 ),
               ),
@@ -323,7 +339,6 @@ class __OfferTabState extends State<_OfferTab> {
               const Text(
                 "Take 15 rides from Sahara & Get a chance to win Rs5000 dinner voucher from Grills & Bakes family restaurant",
                 style: TextStyle(
-                  fontFamily: "sans",
                   fontSize: 14,
                 ),
               ),
@@ -340,7 +355,10 @@ class __OfferTabState extends State<_OfferTab> {
                       onPressed: () {},
                       child: Text(
                         "WATCH NOW",
-                        style: TextStyle(fontSize: 12),
+                        style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.bold,
+                        ),
                       )),
                 ),
               ),
@@ -354,5 +372,3 @@ class __OfferTabState extends State<_OfferTab> {
     );
   }
 }
-
-
