@@ -44,8 +44,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           backgroundColor: Colors.red,
                           child: CircleAvatar(
                             radius: 40,
-                            backgroundImage: NetworkImage(
-                                'https://png.pngtree.com/element_origin_min_pic/17/03/20/59570755b50b18e42aec393f98dde858.jpg'),
+                            backgroundImage: AssetImage('lib/assets/user.png'),
                           ),
                         ),
                         SizedBox(

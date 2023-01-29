@@ -47,6 +47,7 @@ class _ConfirmBookingState extends State<ConfirmBooking> {
   }
 
   final panelController = PanelController();
+
   @override
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
@@ -60,6 +61,7 @@ class _ConfirmBookingState extends State<ConfirmBooking> {
             _isLoading
                 ? Center(child: CircularProgressIndicator())
                 : GoogleMap(
+                  myLocationEnabled: true,
                     zoomControlsEnabled: false,
                     myLocationButtonEnabled: true,
                     onMapCreated: _onMapCreated,
@@ -142,7 +144,7 @@ class PanelWidget extends StatefulWidget {
 
 class _PanelWidgetState extends State<PanelWidget> {
   bool _value = false;
-  var _isToggled = true;
+  bool _isToggled = true;
 
   @override
   Widget build(BuildContext context) {

@@ -111,6 +111,7 @@ class _LocationScreenState extends State<LocationScreen> {
           _isLoading
               ? Center(child: CircularProgressIndicator())
               : GoogleMap(
+                  myLocationEnabled: true,
                   zoomControlsEnabled: false,
                   initialCameraPosition: CameraPosition(
                     target: _currentPosition!,

@@ -30,9 +30,6 @@ class _BikeRideState extends State<BikeRide> {
   }
 
   getLocation() async {
-    LocationPermission permission;
-    permission = await Geolocator.requestPermission();
-
     Position position = await Geolocator.getCurrentPosition(
         desiredAccuracy: LocationAccuracy.high);
     double lat = position.latitude;
@@ -48,6 +45,7 @@ class _BikeRideState extends State<BikeRide> {
 
   void _onMapCreated(GoogleMapController controller) {
     mapController = controller;
+    mapController.showMarkerInfoWindow(MarkerId('value'));
   }
 
   @override
@@ -61,8 +59,9 @@ class _BikeRideState extends State<BikeRide> {
         body: Stack(
           children: [
             _isLoading
-                ? Center(child: CircularProgressIndicator())
+                ? const Center(child: CircularProgressIndicator())
                 : GoogleMap(
+                    myLocationEnabled: true,
                     zoomControlsEnabled: false,
                     myLocationButtonEnabled: true,
                     onMapCreated: _onMapCreated,
@@ -72,11 +71,20 @@ class _BikeRideState extends State<BikeRide> {
                     ),
                     markers: {
                       Marker(
-                        markerId: const MarkerId('value'),
-                        position: _currentPosition!,
-                      )
+                          markerId: const MarkerId('value'),
+                          position: _currentPosition!,
+                          infoWindow: InfoWindow(
+                            title: 'Milijuli Tol, Kathmandu',
+                            snippet: 'Tap to edit',
+                            onTap: () => Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => SearchLocation(
+                                        text: 'Confirm pickup location'))),
+                          ))
                     },
                   ),
+
             Positioned(
                 top: 50,
                 left: 10,
@@ -94,11 +102,10 @@ class _BikeRideState extends State<BikeRide> {
                 top: MediaQuery.of(context).size.height * 0.30,
                 right: 5,
                 child: SpeedDial(
-                  icon: Icons.add,
+                  curve: Curves.bounceIn,
                   spaceBetweenChildren: 10,
                   overlayOpacity: 0,
-                  backgroundColor: Colors.red,
-                  animatedIcon: AnimatedIcons.menu_close,
+                  backgroundColor: Colors.white,
                   children: [
                     SpeedDialChild(
                       labelStyle: TextStyle(color: Colors.white),
@@ -115,6 +122,10 @@ class _BikeRideState extends State<BikeRide> {
                       label: 'Support',
                     ),
                   ],
+                  child: Icon(Icons.add, color: Colors.black),
+                  activeIcon: Icons.close,
+                  iconTheme: IconThemeData(color: Colors.black),
+                  useRotationAnimation: true,
                 )),
             //location icon
             Positioned(right: 15, bottom: height, child: LocationButton()),
@@ -132,7 +143,7 @@ class _BikeRideState extends State<BikeRide> {
                 borderRadius: BorderRadius.vertical(top: Radius.circular(15)),
                 panelBuilder: (controller) =>
                     PanelWidget(controller: controller)),
-],
+          ],
         ),
       ),
     );
@@ -178,13 +189,25 @@ class PanelWidget extends StatelessWidget {
               enabled: false,
               decoration: InputDecoration(
                 contentPadding: EdgeInsets.all(8),
-                prefixIcon: Icon(Icons.person_pin_circle_sharp),
+                prefixIcon: Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Container(
+                    child: Icon(
+                      Icons.emoji_people,
+                      size: 17,
+                      color: Colors.white,
+                    ),
+                    decoration: BoxDecoration(
+                        color: Theme.of(context).primaryColor,
+                        shape: BoxShape.circle),
+                  ),
+                ),
                 suffixIcon: Icon(
                   Icons.search,
                   color: Colors.black38,
                 ),
-                labelText: 'Pickup Location',
-                hintStyle: TextStyle(color: Colors.grey),
+                labelText: 'Milijuli Tol, Kathmandu',
+                labelStyle: TextStyle(color: Colors.black),
                 disabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(5),
                     borderSide: BorderSide(
