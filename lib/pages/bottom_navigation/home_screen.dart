@@ -9,7 +9,6 @@ import 'package:sahara/pages/widgets/carousel_slider.dart';
 import 'package:sahara/pages/widgets/services.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:store_redirect/store_redirect.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -288,7 +287,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => SearchLocation(
+                              builder: (context) => const SearchLocation(
                                     text: 'Confirm dropoff location',
                                   )));
                     },

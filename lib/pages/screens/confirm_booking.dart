@@ -4,6 +4,8 @@ import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:sahara/pages/bottom_navigation/profile_screen.dart';
+import 'package:sahara/pages/screens/accepted_screen.dart';
+import 'package:sahara/pages/screens/search_location_screen.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 
 class ConfirmBooking extends StatefulWidget {
@@ -14,6 +16,7 @@ class ConfirmBooking extends StatefulWidget {
 }
 
 class _ConfirmBookingState extends State<ConfirmBooking> {
+  LatLng destination = const LatLng(27.749050, 85.345463);
   static const double heightClosed = 195;
   double height = heightClosed;
 
@@ -44,6 +47,8 @@ class _ConfirmBookingState extends State<ConfirmBooking> {
 
   void _onMapCreated(GoogleMapController controller) {
     mapController = controller;
+    mapController.showMarkerInfoWindow(MarkerId('value'));
+    mapController.showMarkerInfoWindow(MarkerId('Destination'));
   }
 
   final panelController = PanelController();
@@ -61,7 +66,7 @@ class _ConfirmBookingState extends State<ConfirmBooking> {
             _isLoading
                 ? Center(child: CircularProgressIndicator())
                 : GoogleMap(
-                  myLocationEnabled: true,
+                    myLocationEnabled: true,
                     zoomControlsEnabled: false,
                     myLocationButtonEnabled: true,
                     onMapCreated: _onMapCreated,
@@ -71,9 +76,29 @@ class _ConfirmBookingState extends State<ConfirmBooking> {
                     ),
                     markers: {
                       Marker(
-                        markerId: MarkerId('value'),
-                        position: _currentPosition!,
-                      )
+                          markerId: MarkerId('value'),
+                          position: _currentPosition!,
+                          infoWindow: InfoWindow(
+                            title: 'Milijuli Tol, Kathmandu',
+                            snippet: 'Tap to edit',
+                            onTap: () => Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const SearchLocation(
+                                        text: 'Confirm pickup location'))),
+                          )),
+                      Marker(
+                          markerId: const MarkerId('Destination'),
+                          position: destination,
+                          infoWindow: InfoWindow(
+                            title: 'Golfutar Stop, Golphutar',
+                            snippet: 'Tap to edit',
+                            onTap: () => Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const SearchLocation(
+                                        text: 'Confirm dropoff location'))),
+                          )),
                     },
                   ),
             Positioned(
@@ -93,11 +118,10 @@ class _ConfirmBookingState extends State<ConfirmBooking> {
                 top: MediaQuery.of(context).size.height * 0.30,
                 right: 5,
                 child: SpeedDial(
-                  icon: Icons.add,
+                  curve: Curves.bounceIn,
                   spaceBetweenChildren: 10,
                   overlayOpacity: 0,
-                  backgroundColor: Colors.red,
-                  animatedIcon: AnimatedIcons.menu_close,
+                  backgroundColor: Colors.white,
                   children: [
                     SpeedDialChild(
                       labelStyle: TextStyle(color: Colors.white),
@@ -114,6 +138,10 @@ class _ConfirmBookingState extends State<ConfirmBooking> {
                       label: 'Support',
                     ),
                   ],
+                  child: Icon(Icons.add, color: Colors.black),
+                  activeIcon: Icons.close,
+                  iconTheme: IconThemeData(color: Colors.black),
+                  useRotationAnimation: true,
                 )),
             SlidingUpPanel(
                 controller: panelController,
@@ -373,7 +401,10 @@ class _PanelWidgetState extends State<PanelWidget> {
                     borderRadius: BorderRadius.circular(10),
                   ),
                 ),
-                onPressed: () {},
+                onPressed: () => _confirmDialog(context),
+                // Navigator.push(context,
+                //     MaterialPageRoute(builder: (context) => AcceptRide()));
+
                 child: Text(
                   "Get a ride",
                   style: TextStyle(color: Colors.white, fontSize: 18),
@@ -533,3 +564,333 @@ class _PanelWidgetState extends State<PanelWidget> {
             ),
           ));
 }
+
+_confirmDialog(BuildContext context) {
+  String booking = "self";
+
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return StatefulBuilder(builder: (context, setState) {
+        return AlertDialog(
+          insetPadding: EdgeInsets.all(15),
+          contentPadding: EdgeInsets.all(15),
+          content: SizedBox(
+            height: MediaQuery.of(context).size.height * 0.27,
+            width: MediaQuery.of(context).size.width,
+            child: Column(
+              // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: const [
+                    Text(
+                      "Select payment type",
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+                    ),
+                    Text(
+                      "Confirm your ride?",
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+                    ),
+                  ],
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 18.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        height: MediaQuery.of(context).size.height * 0.13,
+                        width: MediaQuery.of(context).size.width * 0.20,
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                              color: Theme.of(context).primaryColor, width: 2),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Icon(
+                              Icons.account_balance_wallet,
+                              size: 40,
+                            ),
+                            Text(
+                              "Wallet",
+                              style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                  color: Theme.of(context).primaryColor),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Container(
+                        height: MediaQuery.of(context).size.height * 0.13,
+                        width: MediaQuery.of(context).size.width * 0.18,
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                              color: Theme.of(context).primaryColor, width: 2),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Icon(
+                              Icons.account_balance_wallet,
+                              size: 40,
+                            ),
+                            Text(
+                              "Cash",
+                              style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                  color: Theme.of(context).primaryColor),
+                            ),
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.13,
+                        width: MediaQuery.of(context).size.width * 0.35,
+                        child: Column(
+                          children: [
+                            RadioListTile(
+                              contentPadding: EdgeInsets.zero,
+                              dense: true,
+                              visualDensity:
+                                  VisualDensity(vertical: -3, horizontal: -4),
+                              title: Text(
+                                "Booking for self",
+                                style: TextStyle(
+                                    fontSize: 10, fontWeight: FontWeight.bold),
+                              ),
+                              value: "self",
+                              groupValue: booking,
+                              onChanged: (value) {
+                                setState(() {
+                                  booking = value.toString();
+                                });
+                              },
+                            ),
+                            RadioListTile(
+                              contentPadding: EdgeInsets.zero,
+                              visualDensity:
+                                  VisualDensity(vertical: -3, horizontal: -4),
+                              dense: true,
+                              title: Text(
+                                "Booking for others",
+                                style: TextStyle(
+                                    fontSize: 10, fontWeight: FontWeight.bold),
+                              ),
+                              value: "others",
+                              groupValue: booking,
+                              onChanged: (value) {
+                                setState(() {
+                                  booking = value.toString();
+                                });
+                              },
+                            ),
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.05,
+                      width: MediaQuery.of(context).size.width * 0.32,
+                      child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              elevation: 0, backgroundColor: Colors.black),
+                          onPressed: () => Navigator.pop(context),
+                          child: const Text(
+                            "Cancel",
+                            style: TextStyle(
+                              fontSize: 10,
+                            ),
+                          )),
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.05,
+                      width: MediaQuery.of(context).size.width * 0.30,
+                      child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              elevation: 0,
+                              backgroundColor: Theme.of(context).primaryColor),
+                          onPressed: () => Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => AcceptRide())),
+                          child: const Text(
+                            "Confirm",
+                            style: TextStyle(
+                              fontSize: 10,
+                            ),
+                          )),
+                    )
+                  ],
+                ),
+              ],
+            ),
+          ),
+        );
+      });
+    },
+  );
+}
+
+
+// insetPadding: EdgeInsets.all(15),
+//           content: SizedBox(
+//             height: MediaQuery.of(context).size.height * 0.25,
+//             width: MediaQuery.of(context).size.width,
+//             child: Column(
+//               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//               children: [
+//                 Row(
+//                   children: [
+//                     Column(
+//                       children: [
+//                         Text(
+//                           "Select payment type",
+//                           style: TextStyle(fontWeight: FontWeight.bold),
+//                         ),
+//                         Row(
+//                           children: [
+//                             Container(
+//                               height: MediaQuery.of(context).size.height * 0.13,
+//                               width: MediaQuery.of(context).size.width * 0.20,
+//                               decoration: BoxDecoration(
+//                                 border: Border.all(
+//                                     color: Theme.of(context).primaryColor,
+//                                     width: 2),
+//                                 borderRadius: BorderRadius.circular(10),
+//                               ),
+//                               child: Column(
+//                                 mainAxisAlignment:
+//                                     MainAxisAlignment.spaceAround,
+//                                 children: [
+//                                   Icon(
+//                                     Icons.account_balance_wallet,
+//                                     size: 40,
+//                                   ),
+//                                   Text(
+//                                     "Wallet",
+//                                     style: TextStyle(
+//                                         fontSize: 18,
+//                                         fontWeight: FontWeight.bold,
+//                                         color: Theme.of(context).primaryColor),
+//                                   ),
+//                                 ],
+//                               ),
+//                             ),
+//                             SizedBox(
+//                               width: MediaQuery.of(context).size.width * 0.04,
+//                             ),
+//                             Container(
+//                               height: MediaQuery.of(context).size.height * 0.13,
+//                               width: MediaQuery.of(context).size.width * 0.18,
+//                               decoration: BoxDecoration(
+//                                 border: Border.all(
+//                                     color: Theme.of(context).primaryColor,
+//                                     width: 2),
+//                                 borderRadius: BorderRadius.circular(10),
+//                               ),
+//                               child: Column(
+//                                 mainAxisAlignment:
+//                                     MainAxisAlignment.spaceAround,
+//                                 children: [
+//                                   Icon(
+//                                     Icons.account_balance_wallet,
+//                                     size: 40,
+//                                   ),
+//                                   Text(
+//                                     "Cash",
+//                                     style: TextStyle(
+//                                         fontSize: 18,
+//                                         fontWeight: FontWeight.bold,
+//                                         color: Theme.of(context).primaryColor),
+//                                   ),
+//                                 ],
+//                               ),
+//                             )
+//                           ],
+//                         ),
+//                       ],
+//                     ),
+//                     Column(
+//                       children: [
+//                         Text(
+//                           "Confirm your ride?",
+//                           style: TextStyle(
+//                               fontWeight: FontWeight.bold, fontSize: 12),
+//                         ),
+//                         RadioListTile(
+//                           title: Text("Booking for self"),
+//                           value: "self",
+//                           groupValue: booking,
+//                           onChanged: (value) {
+//                             setState(() {
+//                               booking = value.toString();
+//                             });
+//                           },
+//                         ),
+//                         RadioListTile(
+//                           title: Text("Booking for others"),
+//                           value: "others",
+//                           groupValue: booking,
+//                           onChanged: (value) {
+//                             setState(() {
+//                               booking = value.toString();
+//                             });
+//                           },
+//                         ),
+//                       ],
+//                     )
+//                   ],
+//                 ),
+//                 Row(
+//                   mainAxisAlignment: MainAxisAlignment.spaceAround,
+//                   children: [
+//                     SizedBox(
+//                       height: MediaQuery.of(context).size.height * 0.05,
+//                       width: MediaQuery.of(context).size.width * 0.30,
+//                       child: ElevatedButton(
+//                           style: ElevatedButton.styleFrom(
+//                               elevation: 0, backgroundColor: Colors.black),
+//                           onPressed: () => Navigator.pop(context),
+//                           child: const Text(
+//                             "Cancel",
+//                             style: TextStyle(
+//                               fontSize: 10,
+//                             ),
+//                           )),
+//                     ),
+//                     SizedBox(
+//                       height: MediaQuery.of(context).size.height * 0.05,
+//                       width: MediaQuery.of(context).size.width * 0.30,
+//                       child: ElevatedButton(
+//                           style: ElevatedButton.styleFrom(
+//                               elevation: 0,
+//                               backgroundColor: Theme.of(context).primaryColor),
+//                           onPressed: () => Navigator.push(
+//                               context,
+//                               MaterialPageRoute(
+//                                   builder: (context) => AcceptRide())),
+//                           child: const Text(
+//                             "Confirm",
+//                             style: TextStyle(
+//                               fontSize: 10,
+//                             ),
+//                           )),
+//                     )
+//                   ],
+//                 )
+//               ],
+//             ),
+//           ),

@@ -1,8 +1,12 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:sahara/pages/screens/login_screen.dart';
+import 'package:sahara/pages/screens/otp_screen.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
+
+  // static String verify = "";
 
   @override
   State<SignupScreen> createState() => _SignupScreenState();
@@ -10,12 +14,26 @@ class SignupScreen extends StatefulWidget {
 
 class _SignupScreenState extends State<SignupScreen> {
   final GlobalKey<FormState> _formKey = GlobalKey();
+  // var countryCode = "+977";
+  // var phone = "";
 
-  void _saveForm() {
+  void _saveForm() async {
     final bool isValid = _formKey.currentState!.validate();
     if (isValid) {
       Navigator.push(
-          context, MaterialPageRoute(builder: (context) => LoginScreen()));
+              context, MaterialPageRoute(builder: (context) => LoginScreen()));
+      // print('ekjfewjfoiewjfioewjf:${countryCode + phone}');
+      // await FirebaseAuth.instance.verifyPhoneNumber(
+      //   phoneNumber: '${countryCode + phone}',
+      //   verificationCompleted: (PhoneAuthCredential credential) {},
+      //   verificationFailed: (FirebaseAuthException e) {},
+      //   codeSent: (String verificationId, int? resendToken) {
+      //     SignupScreen.verify = verificationId;
+      //     Navigator.push(
+      //         context, MaterialPageRoute(builder: (context) => OtpScreen()));
+      //   },
+      //   codeAutoRetrievalTimeout: (String verificationId) {},
+      // );
     }
   }
 
@@ -64,8 +82,9 @@ class _SignupScreenState extends State<SignupScreen> {
                 Form(
                   key: _formKey,
                   child: TextFormField(
+                    // onChanged: (value) => phone = value,
                     cursorColor: Theme.of(context).primaryColor,
-                    keyboardType: TextInputType.number,
+                    keyboardType: TextInputType.phone,
                     validator: (value) {
                       if (value != null && value.trim().length < 10) {
                         return 'Enter a valid 10 digit phone number';
