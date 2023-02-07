@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:sahara/pages/bottom_navigation/home_screen.dart';
+import 'package:sahara/pages/bottom_navigation/main_page.dart';
 
 class RideCompleted extends StatefulWidget {
   const RideCompleted({super.key});
@@ -248,11 +248,11 @@ class _RideCompletedState extends State<RideCompleted> {
                           onPressed: () {},
                         ),
                         ChoiceBtn(
-                          text: 'Service',
+                          text: 'Timing',
                           onPressed: () {},
                         ),
                         ChoiceBtn(
-                          text: 'Service',
+                          text: 'Comfort',
                           onPressed: () {},
                         ),
                       ],
@@ -261,15 +261,15 @@ class _RideCompletedState extends State<RideCompleted> {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         ChoiceBtn(
-                          text: 'Service',
+                          text: 'Quality',
                           onPressed: () {},
                         ),
                         ChoiceBtn(
-                          text: 'Service',
+                          text: 'Others',
                           onPressed: () {},
                         ),
                         ChoiceBtn(
-                          text: 'Service',
+                          text: 'Nothing',
                           onPressed: () {},
                         ),
                       ],
@@ -320,7 +320,7 @@ class _RideCompletedState extends State<RideCompleted> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => HomeScreen()));
+                                builder: (context) => MainPage()));
                       },
                       child: Text(
                         "Completed",

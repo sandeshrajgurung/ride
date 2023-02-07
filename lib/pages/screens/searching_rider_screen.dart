@@ -8,14 +8,14 @@ import 'package:sahara/pages/screens/picked_screen.dart';
 import 'package:sahara/pages/screens/search_location_screen.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 
-class AcceptRide extends StatefulWidget {
-  const AcceptRide({super.key});
+class SearchingRider extends StatefulWidget {
+  const SearchingRider({super.key});
 
   @override
-  State<AcceptRide> createState() => _AcceptRideState();
+  State<SearchingRider> createState() => _SearchingRiderState();
 }
 
-class _AcceptRideState extends State<AcceptRide> {
+class _SearchingRiderState extends State<SearchingRider> {
   LatLng destination = const LatLng(27.749050, 85.345463);
   static const double heightClosed = 195;
   double height = heightClosed;
@@ -147,8 +147,8 @@ class _AcceptRideState extends State<AcceptRide> {
                 controller: panelController,
                 boxShadow: [BoxShadow(blurRadius: 0)],
                 defaultPanelState: PanelState.CLOSED,
-                maxHeight: MediaQuery.of(context).size.height * 0.43,
-                minHeight: MediaQuery.of(context).size.height * 0.35,
+                maxHeight: MediaQuery.of(context).size.height * 0.37,
+                minHeight: MediaQuery.of(context).size.height * 0.28,
                 borderRadius: BorderRadius.vertical(top: Radius.circular(15)),
                 panelBuilder: (controller) => PanelWidget(
                     controller: controller, panelController: panelController)),
@@ -179,119 +179,34 @@ class _PanelWidgetState extends State<PanelWidget> {
         children: [
           SizedBox(height: 30, child: buildDragHandle()),
           const Text(
-            "Accepted",
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            "Searching for SaharaPartner",
+            style: TextStyle(
+                fontSize: 20, fontWeight: FontWeight.bold, height: 1.5),
           ),
-          Divider(
-            color: Theme.of(context).primaryColor,
-            thickness: 2.3,
-          ),
-          Container(
-            padding: const EdgeInsets.symmetric(vertical: 5),
-            height: MediaQuery.of(context).size.height * 0.14,
-            // color: Colors.amber,
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(
-                  children: [
-                    const /*--Remove const when dynamic*/ CircleAvatar(
-                      radius: 41,
-                      backgroundColor: Colors.red,
-                      child: CircleAvatar(
-                        radius: 39,
-                        backgroundImage: AssetImage('lib/assets/user.png'),
-                      ),
-                    ),
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.04,
-                    ),
-                    Column(
-                      /* Rider detail colum */
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const /*--Remove const when dynamic*/ [
-                        Padding(padding: EdgeInsets.symmetric(vertical: 5)),
-                        Text(
-                          "Rider name",
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w800,
-                          ),
-                        ),
-                        Text(
-                          "Bike Color Bike Model",
-                          style: TextStyle(
-                              fontSize: 12,
-                              fontWeight: FontWeight.bold,
-                              height: 1.5),
-                        ),
-                        Text(
-                          "Plate no",
-                          style: TextStyle(
-                              fontSize: 12,
-                              color: Colors.black38,
-                              fontWeight: FontWeight.bold),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.06,
-                      width: MediaQuery.of(context).size.width * 0.22,
-                      child: ElevatedButton.icon(
-                        onPressed: () {
-                          /*Change When dynamic */
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => PickedScreen()));
-                        },
-                        icon: const Icon(
-                          Icons.phone,
-                          size: 24,
-                        ),
-                        label: const Text(
-                          "Call",
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 16),
-                        ),
-                        style: ElevatedButton.styleFrom(
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(6)),
-                          elevation: 0,
-                          padding: EdgeInsets.zero,
-                          backgroundColor: Theme.of(context).primaryColor,
-                        ),
-                      ),
-                    ),
-                    const Text(
-                      "Chat & Call",
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-                    ),
-                  ],
-                ),
-              ],
+          const Padding(
+            padding: EdgeInsets.symmetric(vertical: 8.0),
+            child: LinearProgressIndicator(
+              minHeight: 2,
+              backgroundColor: Colors.red,
+              color: Color.fromARGB(255, 252, 203, 220),
             ),
           ),
+          const Text(
+            "Please be patience we are arranging a SaharaPartner for you!Thankyou!",
+            style: TextStyle(fontSize: 16),
+          ),
           SizedBox(
-            height: MediaQuery.of(context).size.height * 0.01,
+            height: MediaQuery.of(context).size.height * 0.02,
           ),
           Container(
-            height: 40,
+            height: 42,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
               color: Colors.black12,
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
+              children: const [
                 Text(
                   "Distance:1.90 KM",
                   style: TextStyle(fontWeight: FontWeight.bold),
@@ -310,7 +225,7 @@ class _PanelWidgetState extends State<PanelWidget> {
             ),
           ),
           SizedBox(
-            height: MediaQuery.of(context).size.height * 0.03,
+            height: MediaQuery.of(context).size.height * 0.02,
           ),
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.06,
@@ -323,7 +238,7 @@ class _PanelWidgetState extends State<PanelWidget> {
                   ),
                   backgroundColor: Colors.black,
                 ),
-                onPressed: () {},
+                onPressed: () => _cancelDialog(context),
                 child: Text(
                   "Cancel",
                   style: TextStyle(
@@ -344,4 +259,143 @@ class _PanelWidgetState extends State<PanelWidget> {
   void togglePanel() => widget.panelController.isPanelOpen
       ? widget.panelController.close()
       : widget.panelController.open();
+}
+
+_cancelDialog(BuildContext context) {
+  String? reason;
+  bool _textFieldVisible = false;
+
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return StatefulBuilder(builder: (context, setState) {
+        void handleSelection(value) {
+          setState(() {
+            reason = value;
+            _textFieldVisible = value == "Other";
+          });
+        }
+
+        return AlertDialog(
+          insetPadding: EdgeInsets.all(15),
+          contentPadding: EdgeInsets.zero,
+          content: Container(
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
+            // height: MediaQuery.of(context).size.height * 0.47,
+            width: MediaQuery.of(context).size.width,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                ListTile(
+                  title: const Text(
+                    "Cancellation Reason",
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  ),
+                  trailing: IconButton(
+                    icon: Icon(Icons.close),
+                    onPressed: () {
+                      return Navigator.pop(context);
+                    },
+                  ),
+                ),
+                const Divider(
+                  height: 0,
+                  thickness: 2,
+                ),
+                RadioListTile(
+                  activeColor: Theme.of(context).primaryColor,
+                  visualDensity: VisualDensity(vertical: -2),
+                  title: Text("My pickup/destination location was incorrect"),
+                  value: "incorrect locatin",
+                  controlAffinity: ListTileControlAffinity.trailing,
+                  groupValue: reason,
+                  onChanged: handleSelection,
+                ),
+                const Divider(
+                  height: 0,
+                  thickness: 1,
+                ),
+                RadioListTile(
+                  activeColor: Theme.of(context).primaryColor,
+                  visualDensity: VisualDensity(vertical: -2),
+                  title: const Text(
+                    "Rider/Partner asked me to cancel",
+                  ),
+                  value: "Rider",
+                  controlAffinity: ListTileControlAffinity.trailing,
+                  groupValue: reason,
+                  onChanged: handleSelection,
+                ),
+                const Divider(
+                  height: 0,
+                  thickness: 1,
+                ),
+                RadioListTile(
+                  activeColor: Theme.of(context).primaryColor,
+                  visualDensity: VisualDensity(vertical: -2),
+                  title: const Text("I waited too long"),
+                  value: "waiting",
+                  controlAffinity: ListTileControlAffinity.trailing,
+                  groupValue: reason,
+                  onChanged: handleSelection,
+                ),
+                const Divider(
+                  height: 0,
+                  thickness: 1,
+                ),
+                RadioListTile(
+                  activeColor: Theme.of(context).primaryColor,
+                  visualDensity: VisualDensity(vertical: -2),
+                  title: const Text("Other"),
+                  value: "Other",
+                  controlAffinity: ListTileControlAffinity.trailing,
+                  groupValue: reason,
+                  onChanged: handleSelection,
+                ),
+                if (_textFieldVisible)
+                  const Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 15.0),
+                    child: TextField(
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        hintText: 'Give a short cancellation reason...',
+                      ),
+                    ),
+                  ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.02,
+                ),
+                Padding(
+                  padding:
+                      const EdgeInsets.only(left: 15.0, right: 15, bottom: 15),
+                  child: SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.06,
+                    width: double.infinity,
+                    child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          elevation: 0,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          backgroundColor: Theme.of(context).primaryColor,
+                        ),
+                        onPressed: () {
+                          return Navigator.pop(context);
+                        },
+                        child: Text(
+                          "Cancel Ride",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold),
+                        )),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      });
+    },
+  );
 }

@@ -116,10 +116,45 @@ class Location {
 }
 
 const allLocations = [
-  Location(address: 'Golfutar Stop, Golphutar, BudhanilKantha NagarPalika, Kathmandu'),
+  Location(
+      address:
+          'Golfutar Stop, Golphutar, BudhanilKantha NagarPalika, Kathmandu'),
   Location(address: 'Hattigauda, Kathmandu'),
   Location(address: 'Milijuli Tol, Kathmandu, Kathmandu'),
   Location(address: 'Narayan Gopal chowk, Kathmandu'),
   Location(address: 'Bhatbateni, Narayan Gopal chowk, Kathmandu'),
   Location(address: 'Basundhara Stop, Kathmandu'),
+];
+
+//Histoy
+class Rider {
+  String riderName;
+  String date;
+  String time;
+  String pickup;
+  String dropoff;
+  String price;
+  String distance;
+
+  Rider({
+    required this.riderName,
+    required this.time,
+    required this.date,
+    required this.pickup,
+    required this.dropoff,
+    required this.price,
+    required this.distance,
+  });
+}
+
+final List<Rider> riders = [
+  Rider(
+    riderName: 'Rider name',
+    time: '12:06 AM',
+    date: '2023/02/01',
+    pickup: 'Milijuli Tol, Kathmandu',
+    dropoff: 'Golfutar stop, Golputar, Buddhanilkantha Nagarpalika, Kathmandu',
+    price: 'Rs.64',
+    distance: '2.01 Km',
+  )
 ];
