@@ -263,7 +263,7 @@ class _PanelWidgetState extends State<PanelWidget> {
 
 _cancelDialog(BuildContext context) {
   String? reason;
-  bool _textFieldVisible = false;
+  bool textFieldVisible = false;
 
   showDialog(
     context: context,
@@ -272,7 +272,7 @@ _cancelDialog(BuildContext context) {
         void handleSelection(value) {
           setState(() {
             reason = value;
-            _textFieldVisible = value == "Other";
+            textFieldVisible = value == "Other";
           });
         }
 
@@ -352,7 +352,7 @@ _cancelDialog(BuildContext context) {
                   groupValue: reason,
                   onChanged: handleSelection,
                 ),
-                if (_textFieldVisible)
+                if (textFieldVisible)
                   const Padding(
                     padding: EdgeInsets.symmetric(horizontal: 15.0),
                     child: TextField(

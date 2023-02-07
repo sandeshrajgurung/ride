@@ -135,6 +135,8 @@ class Rider {
   String dropoff;
   String price;
   String distance;
+  String? userName;
+  String? contact;
 
   Rider({
     required this.riderName,
@@ -144,10 +146,23 @@ class Rider {
     required this.dropoff,
     required this.price,
     required this.distance,
+    this.userName,
+    this.contact,
   });
 }
 
 final List<Rider> riders = [
+  Rider(
+    riderName: 'Rider name',
+    time: '12:06 AM',
+    date: '2023/02/01',
+    pickup: 'Milijuli Tol, Kathmandu',
+    dropoff: 'Golfutar stop, Golputar, Buddhanilkantha Nagarpalika, Kathmandu',
+    price: 'Rs.64',
+    distance: '2.01 Km',
+    userName: 'Name',
+    contact: '1234567892',
+  ),
   Rider(
     riderName: 'Rider name',
     time: '12:06 AM',
