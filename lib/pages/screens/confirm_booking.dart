@@ -222,7 +222,7 @@ class _PanelWidgetState extends State<PanelWidget> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                const  Text('Bike',
+                                  const Text('Bike',
                                       style: TextStyle(
                                         color: Color(0xFF5F5F5F),
                                         height: 2.3,
@@ -231,12 +231,12 @@ class _PanelWidgetState extends State<PanelWidget> {
                                   _isToggled
                                       ? IconButton(
                                           onPressed: showBottomSheet,
-                                          icon:const Icon(
+                                          icon: const Icon(
                                             Icons.info_outline,
                                             size: 20,
                                             color: Colors.red,
                                           ))
-                                      :const Visibility(
+                                      : const Visibility(
                                           visible: false, child: Text("dasj"))
                                 ],
                               ),
@@ -593,177 +593,223 @@ class _PanelWidgetState extends State<PanelWidget> {
 
 _confirmDialog(BuildContext context) {
   String booking = "self";
+  bool textFieldVisible = false;
 
   showDialog(
     context: context,
     builder: (BuildContext context) {
       return StatefulBuilder(builder: (context, setState) {
+        void bookingSelection(value) {
+          setState(() {
+            booking = value;
+            textFieldVisible = value == "others";
+          });
+        }
+
         return AlertDialog(
-          insetPadding: EdgeInsets.all(15),
-          contentPadding: EdgeInsets.all(15),
-          content: SizedBox(
-            height: MediaQuery.of(context).size.height * 0.27,
-            width: MediaQuery.of(context).size.width,
-            child: Column(
-              // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Row(
+          insetPadding: EdgeInsets.all(10),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(15),
+          ),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: const [
+                  Text(
+                    "Select payment type",
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+                  ),
+                  Text(
+                    "Confirm your ride?",
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+                  ),
+                ],
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 18.0),
+                child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
-                    Text(
-                      "Select payment type",
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
-                    ),
-                    Text(
-                      "Confirm your ride?",
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
-                    ),
-                  ],
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 18.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Container(
-                        height: MediaQuery.of(context).size.height * 0.13,
-                        width: MediaQuery.of(context).size.width * 0.20,
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                              color: Theme.of(context).primaryColor, width: 2),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Icon(
-                              Icons.account_balance_wallet,
-                              size: 40,
-                            ),
-                            Text(
-                              "Wallet",
-                              style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                  color: Theme.of(context).primaryColor),
-                            ),
-                          ],
-                        ),
+                  children: [
+                    Container(
+                      height: MediaQuery.of(context).size.height * 0.13,
+                      width: MediaQuery.of(context).size.width * 0.20,
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                            color: Theme.of(context).primaryColor, width: 2),
+                        borderRadius: BorderRadius.circular(10),
                       ),
-                      Container(
-                        height: MediaQuery.of(context).size.height * 0.13,
-                        width: MediaQuery.of(context).size.width * 0.18,
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                              color: Theme.of(context).primaryColor, width: 2),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Icon(
-                              Icons.account_balance_wallet,
-                              size: 40,
-                            ),
-                            Text(
-                              "Cash",
-                              style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                  color: Theme.of(context).primaryColor),
-                            ),
-                          ],
-                        ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Icon(
+                            Icons.account_balance_wallet,
+                            size: 40,
+                          ),
+                          Text(
+                            "Wallet",
+                            style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                color: Theme.of(context).primaryColor),
+                          ),
+                        ],
                       ),
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.13,
-                        width: MediaQuery.of(context).size.width * 0.35,
-                        child: Column(
+                    ),
+                    Container(
+                      height: MediaQuery.of(context).size.height * 0.13,
+                      width: MediaQuery.of(context).size.width * 0.18,
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                            color: Theme.of(context).primaryColor, width: 2),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Icon(
+                            Icons.account_balance_wallet,
+                            size: 40,
+                          ),
+                          Text(
+                            "Cash",
+                            style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                color: Theme.of(context).primaryColor),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Row(
                           children: [
-                            RadioListTile(
-                              contentPadding: EdgeInsets.zero,
-                              dense: true,
-                              visualDensity:
-                                  VisualDensity(vertical: -3, horizontal: -4),
-                              title: Text(
-                                "Booking for self",
-                                style: TextStyle(
-                                    fontSize: 10, fontWeight: FontWeight.bold),
-                              ),
+                            Radio(
+                              activeColor: Theme.of(context).primaryColor,
+                              visualDensity: const VisualDensity(
+                                  horizontal: VisualDensity.minimumDensity,
+                                  vertical: VisualDensity.minimumDensity),
                               value: "self",
                               groupValue: booking,
-                              toggleable: true,
-                              onChanged: (value) {
-                                setState(() {
-                                  booking = value.toString();
-                                });
-                              },
+                              onChanged: bookingSelection,
                             ),
-                            RadioListTile(
-                              contentPadding: EdgeInsets.zero,
-                              visualDensity:
-                                  VisualDensity(vertical: -3, horizontal: -4),
-                              dense: true,
-                              title: Text(
-                                "Booking for others",
-                                style: TextStyle(
-                                    fontSize: 10, fontWeight: FontWeight.bold),
+                            const Text(
+                              "Booking for self",
+                              style: TextStyle(
+                                fontSize: 10,
                               ),
-                              value: "others",
-                              groupValue: booking,
-                              onChanged: (value) {
-                                setState(() {
-                                  booking = value.toString();
-                                });
-                              },
                             ),
                           ],
                         ),
-                      )
-                    ],
-                  ),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.05,
-                      width: MediaQuery.of(context).size.width * 0.32,
-                      child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                              elevation: 0, backgroundColor: Colors.black),
-                          onPressed: () => Navigator.pop(context),
-                          child: const Text(
-                            "Cancel",
-                            style: TextStyle(
-                              fontSize: 10,
+                        Row(
+                          children: [
+                            Radio(
+                              activeColor: Theme.of(context).primaryColor,
+                              visualDensity: const VisualDensity(
+                                  horizontal: VisualDensity.minimumDensity,
+                                  vertical: VisualDensity.minimumDensity),
+                              value: "others",
+                              groupValue: booking,
+                              onChanged: bookingSelection,
                             ),
-                          )),
-                    ),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.05,
-                      width: MediaQuery.of(context).size.width * 0.30,
-                      child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                              elevation: 0,
-                              backgroundColor: Theme.of(context).primaryColor),
-                          onPressed: () => Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => SearchingRider())),
-                          child: const Text(
-                            "Confirm",
-                            style: TextStyle(
-                              fontSize: 10,
+                            const Text(
+                              "Booking for self",
+                              style: TextStyle(
+                                fontSize: 10,
+                              ),
                             ),
-                          )),
+                          ],
+                        ),
+                      ],
                     )
                   ],
                 ),
-              ],
-            ),
+              ),
+              if (textFieldVisible)
+                Column(
+                  children: [
+                    TextField(
+                      decoration: InputDecoration(
+                          contentPadding: EdgeInsets.all(10),
+                          label: Text("Name"),
+                          labelStyle:
+                              TextStyle(color: Color(0xFF5F5F5F), fontSize: 12),
+                          floatingLabelStyle:
+                              TextStyle(color: Theme.of(context).primaryColor),
+                          enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                  width: 1.5, color: Color(0xFF5F5F5F))),
+                          focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                  width: 1.5,
+                                  color: Theme.of(context).primaryColor))),
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.04,
+                    ),
+                    TextField(
+                      decoration: InputDecoration(
+                          contentPadding: EdgeInsets.all(15),
+                          label: Text("Phone Number"),
+                          labelStyle:
+                              TextStyle(color: Color(0xFF5F5F5F), fontSize: 12),
+                          floatingLabelStyle:
+                              TextStyle(color: Theme.of(context).primaryColor),
+                          enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                  width: 1.5, color: Color(0xFF5F5F5F))),
+                          focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                  width: 1.5,
+                                  color: Theme.of(context).primaryColor))),
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.04,
+                    ),
+                  ],
+                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.05,
+                    width: MediaQuery.of(context).size.width * 0.32,
+                    child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            elevation: 0, backgroundColor: Colors.black),
+                        onPressed: () => Navigator.pop(context),
+                        child: const Text(
+                          "Cancel",
+                          style: TextStyle(
+                            fontSize: 10,
+                          ),
+                        )),
+                  ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.05,
+                    width: MediaQuery.of(context).size.width * 0.30,
+                    child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            elevation: 0,
+                            backgroundColor: Theme.of(context).primaryColor),
+                        onPressed: () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => SearchingRider())),
+                        child: const Text(
+                          "Confirm",
+                          style: TextStyle(
+                            fontSize: 10,
+                          ),
+                        )),
+                  )
+                ],
+              ),
+            ],
           ),
         );
       });

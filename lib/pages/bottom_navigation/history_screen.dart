@@ -17,7 +17,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
       body: SafeArea(
           child: DefaultTabController(
               length: 2,
-              animationDuration: Duration.zero,
+              // animationDuration: Duration.zero,
               child: Padding(
                 padding: const EdgeInsets.symmetric(vertical: 15.0),
                 child: Column(

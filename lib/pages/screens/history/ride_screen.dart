@@ -314,7 +314,7 @@ class _CardWidgetState extends State<CardWidget> {
                           child: Container(
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 17, vertical: 0),
-                            height: MediaQuery.of(context).size.height * 0.22,
+                            height: MediaQuery.of(context).size.height * 0.23,
                             decoration: BoxDecoration(
                                 color: Colors.black12,
                                 borderRadius: BorderRadius.circular(18)),

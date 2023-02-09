@@ -23,6 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       backgroundColor: Color(0xFFEAEAEA),
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         centerTitle: true,
         elevation: 0,
         title: Image.asset(
@@ -51,7 +52,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     topLeft: Radius.circular(15.0),
                     topRight: Radius.circular(15.0)),
                 color: Colors.white),
-            height: 145,
+            height: 142,
             //wallet container
             child: Padding(
               padding: const EdgeInsets.all(20.0),
@@ -221,11 +222,11 @@ class _HomeScreenState extends State<HomeScreen> {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Container(
+                                SizedBox(
                                     height: 60,
                                     width: 60,
                                     child: Image.asset(
-                                      'lib/assets/sahara-bus.png',
+                                      'lib/assets/bargaining.png',
                                       fit: BoxFit.contain,
                                     )),
                                 Container(
@@ -249,7 +250,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         SizedBox(
                           height: 55,
-                          width: 70,
+                          width: 72,
                           child: Center(
                             child: Lottie.network(
                                 'https://lottie.host/58f2ea03-56b9-4ba6-8be8-1b55bde16f40/omX0FgJoJT.json'),
@@ -413,14 +414,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   const SizedBox(
                     height: 15,
                   ),
-                  Container(
-                    height: 100,
-                    decoration: BoxDecoration(
-                        border: Border.all(color: Colors.black12),
-                        borderRadius: BorderRadius.circular(8.0),
-                        image: DecorationImage(
-                            image: NetworkImage(
-                                'https://img.freepik.com/premium-vector/refer-friend-flat-design-illustration-with-megaphone-screen-mobile-phone-social-media-marketing-friends-via-banner-background-poster_2175-2239.jpg?w=2000'))),
+                  Image.asset(
+                    'lib/assets/refer.png',
                   ),
                   const SizedBox(
                     height: 20,
@@ -453,6 +448,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     width: double.infinity,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
+                        elevation: 0,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(7),
                         ),
@@ -480,20 +476,16 @@ class _HomeScreenState extends State<HomeScreen> {
                         iOSAppId: '1576198596',
                       );
                     },
-                    leading: const CircleAvatar(
-                      radius: 21,
-                      backgroundColor: Colors.black54,
-                      child: CircleAvatar(
-                        radius: 20,
-                        backgroundImage: NetworkImage(
-                            'https://png.pngtree.com/element_origin_min_pic/17/03/20/59570755b50b18e42aec393f98dde858.jpg'),
-                      ),
+                    leading: Image.asset(
+                      'lib/assets/rider.png',
+                      height: 42,
+                      width: 42,
                     ),
-                    title: Text(
+                    title: const Text(
                       'Sahara Ride Partner',
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
-                    subtitle: Text(
+                    subtitle: const Text(
                       'Earn money becoming Sahara Rider Partner',
                       style: TextStyle(
                         color: Colors.black54,
@@ -516,14 +508,10 @@ class _HomeScreenState extends State<HomeScreen> {
                         iOSAppId: '',
                       );
                     },
-                    leading: CircleAvatar(
-                      radius: 21,
-                      backgroundColor: Colors.black54,
-                      child: CircleAvatar(
-                        radius: 20,
-                        backgroundImage: NetworkImage(
-                            'https://png.pngtree.com/element_origin_min_pic/17/03/20/59570755b50b18e42aec393f98dde858.jpg'),
-                      ),
+                    leading: Image.asset(
+                      'lib/assets/restro.png',
+                      height: 42,
+                      width: 42,
                     ),
                     title: Text(
                       'Sahara Restaurant Partner',
@@ -544,14 +532,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   ListTile(
                     contentPadding: const EdgeInsets.symmetric(horizontal: 0),
-                    leading: CircleAvatar(
-                      radius: 21,
-                      backgroundColor: Colors.black54,
-                      child: CircleAvatar(
-                        radius: 20,
-                        backgroundImage: NetworkImage(
-                            'https://png.pngtree.com/element_origin_min_pic/17/03/20/59570755b50b18e42aec393f98dde858.jpg'),
-                      ),
+                    leading: Image.asset(
+                      'lib/assets/support.png',
+                      height: 42,
+                      width: 42,
                     ),
                     title: Text(
                       'Sahara Support',

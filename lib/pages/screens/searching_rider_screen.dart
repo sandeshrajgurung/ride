@@ -4,6 +4,7 @@ import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:sahara/pages/bottom_navigation/profile_screen.dart';
+import 'package:sahara/pages/screens/accepted_screen.dart';
 import 'package:sahara/pages/screens/picked_screen.dart';
 import 'package:sahara/pages/screens/search_location_screen.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
@@ -380,7 +381,10 @@ _cancelDialog(BuildContext context) {
                           backgroundColor: Theme.of(context).primaryColor,
                         ),
                         onPressed: () {
-                          return Navigator.pop(context);
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => AcceptRide()));
                         },
                         child: Text(
                           "Cancel Ride",

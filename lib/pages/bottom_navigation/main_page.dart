@@ -42,7 +42,7 @@ class _MainPageState extends State<MainPage> {
               label: 'Offers',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.history),
+              icon: ImageIcon(AssetImage('lib/assets/history.png')),
               label: 'History',
             ),
             BottomNavigationBarItem(

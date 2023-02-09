@@ -18,6 +18,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
             statusBarColor: Theme.of(context).primaryColor,
             statusBarIconBrightness: Brightness.light,
           ),
+          automaticallyImplyLeading: false,
           elevation: 0,
           backgroundColor: Theme.of(context).primaryColor,
           title: Text("Notification"),
@@ -41,17 +42,24 @@ class _NotificationScreenState extends State<NotificationScreen> {
               children: [
                 ListTile(
                   textColor: Colors.white,
+                  dense: true,
                   minVerticalPadding: 5,
-                  visualDensity: VisualDensity(vertical: -3),
+                  visualDensity: VisualDensity(vertical: -4),
                   tileColor: Colors.black54,
-                  leading: Text(item.date),
-                  title: Text(item.day),
+                  leading: Text(
+                    item.date,
+                    style: const TextStyle(fontSize: 30),
+                  ),
+                  title: Text(
+                    item.day,
+                    style: const TextStyle(fontSize: 16),
+                  ),
                   subtitle: Text(item.time),
                   trailing: Text(item.timeAgo),
                 ),
                 const Divider(
-                  height: 0,
-                  thickness: 3,
+                  height: 2,
+                  thickness: 4,
                   color: Colors.white60,
                 ),
                 ListTile(
