@@ -1,11 +1,12 @@
 // import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:sahara/pages/screens/location_screen.dart';
 import 'package:sahara/pages/screens/signup_screen.dart';
 import 'package:sahara/utils/app_theme.dart';
 import 'package:flutter/services.dart';
 
 void main() async {
- WidgetsFlutterBinding.ensureInitialized();
+  WidgetsFlutterBinding.ensureInitialized();
 //  await Firebase.initializeApp();
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);

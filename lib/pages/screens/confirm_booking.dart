@@ -4,7 +4,6 @@ import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:sahara/pages/bottom_navigation/profile_screen.dart';
-import 'package:sahara/pages/screens/accepted_screen.dart';
 import 'package:sahara/pages/screens/search_location_screen.dart';
 import 'package:sahara/pages/screens/searching_rider_screen.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
@@ -103,16 +102,14 @@ class _ConfirmBookingState extends State<ConfirmBooking> {
                     },
                   ),
             Positioned(
-                top: 50,
+                top: 40,
                 left: 10,
-                child: IconButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  icon: Icon(
-                    Icons.grid_view_sharp,
-                    size: 35,
-                    color: Theme.of(context).primaryColor,
+                child: GestureDetector(
+                  onTap: () => Navigator.pop(context),
+                  child: Image.asset(
+                    'lib/assets/ic_more_revised.png',
+                    height: 55,
+                    width: 55,
                   ),
                 )),
             Positioned(
@@ -200,36 +197,43 @@ class _PanelWidgetState extends State<PanelWidget> {
                       borderRadius: BorderRadius.circular(10),
                       elevation: _isToggled ? 2 : 0,
                       child: Container(
-                        padding: EdgeInsets.all(2),
-                        width: 120,
+                        width: 130,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
                             color:
                                 _isToggled ? Color(0xFFEAEAEA) : Colors.white),
                         child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             SizedBox(
                                 // color: Colors.blue,
                                 height: 50,
                                 width: 60,
-                                child:
-                                    Image.asset('lib/assets/sahara-bike.png')),
+                                child: Image.asset(
+                                  'lib/assets/sahara-bike.png',
+                                  fit: BoxFit.cover,
+                                )),
                             SizedBox(
-                              height: 40,
+                              height: 30,
+                              width: double.infinity,
                               // color: Colors.green,
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
+                                  // const Padding(
+                                  //     padding: EdgeInsets.only(left: 30)),
                                   const Text('Bike',
                                       style: TextStyle(
                                         color: Color(0xFF5F5F5F),
-                                        height: 2.3,
                                         fontWeight: FontWeight.bold,
                                       )),
                                   _isToggled
                                       ? IconButton(
+                                          padding: EdgeInsets.zero,
+                                          visualDensity: VisualDensity(
+                                              horizontal:
+                                                  VisualDensity.minimumDensity),
                                           onPressed: showBottomSheet,
                                           icon: const Icon(
                                             Icons.info_outline,
@@ -241,11 +245,14 @@ class _PanelWidgetState extends State<PanelWidget> {
                                 ],
                               ),
                             ),
-                            const Text('Rs.64/-',
-                                style: TextStyle(
-                                  fontSize: 10,
-                                  fontWeight: FontWeight.bold,
-                                ))
+                            const Padding(
+                              padding: EdgeInsets.all(10.0),
+                              child: Text('Rs.64/-',
+                                  style: TextStyle(
+                                    fontSize: 10,
+                                    fontWeight: FontWeight.bold,
+                                  )),
+                            )
                           ],
                         ),
                       ),
@@ -262,7 +269,7 @@ class _PanelWidgetState extends State<PanelWidget> {
                       elevation: _isToggled ? 0 : 2,
                       child: Container(
                         padding: const EdgeInsets.all(2),
-                        width: 120,
+                        width: 130,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
                           color: _isToggled ? Colors.white : Color(0xFFEAEAEA),
@@ -273,36 +280,47 @@ class _PanelWidgetState extends State<PanelWidget> {
                             SizedBox(
                                 height: 50,
                                 width: 60,
-                                child:
-                                    Image.asset('lib/assets/sahara-cab.png')),
+                                child: Image.asset(
+                                  'lib/assets/sahara-cab.png',
+                                  fit: BoxFit.cover,
+                                )),
                             SizedBox(
-                              height: 40,
+                              height: 30,
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Text('     Cab',
+                                  const Text('     Cab',
                                       style: TextStyle(
                                         color: Color(0xFF5F5F5F),
-                                        height: 2,
                                         fontWeight: FontWeight.bold,
                                       )),
-                                  IconButton(
-                                      onPressed: () {},
-                                      icon: Icon(
-                                        Icons.info_outline,
-                                        size: 20,
-                                        color: Colors.red,
-                                      ))
+                                  Visibility(
+                                    visible: _isToggled ? false : true,
+                                    child: IconButton(
+                                        padding: EdgeInsets.zero,
+                                        visualDensity: const VisualDensity(
+                                            horizontal:
+                                                VisualDensity.minimumDensity),
+                                        onPressed: showBottomSheet,
+                                        icon: const Icon(
+                                          Icons.info_outline,
+                                          size: 20,
+                                          color: Colors.red,
+                                        )),
+                                  )
                                 ],
                               ),
                             ),
-                            const Text('  Rs.210/-',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  decoration: TextDecoration.none,
-                                  fontSize: 10,
-                                  color: Colors.black,
-                                )),
+                            const Padding(
+                              padding: EdgeInsets.all(10.0),
+                              child: Text('  Rs.210/-',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    decoration: TextDecoration.none,
+                                    fontSize: 10,
+                                    color: Colors.black,
+                                  )),
+                            ),
                           ],
                         ),
                       ),
@@ -314,7 +332,8 @@ class _PanelWidgetState extends State<PanelWidget> {
           ],
         ),
         Padding(
-          padding: const EdgeInsets.all(15.0),
+          padding:
+              const EdgeInsets.only(top: 15.0, left: 15, right: 15, bottom: 10),
           child: Container(
             height: 40,
             decoration: BoxDecoration(
@@ -324,22 +343,22 @@ class _PanelWidgetState extends State<PanelWidget> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Text(
+                const Text(
                   "Distance:1.90 KM",
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
-                VerticalDivider(
+                const VerticalDivider(
                   thickness: 1,
                   indent: 8,
                   endIndent: 8,
                   color: Colors.black,
                 ),
                 _isToggled
-                    ? Text(
+                    ? const Text(
                         "  Price:Rs.64/-     ",
                         style: TextStyle(fontWeight: FontWeight.bold),
                       )
-                    : Text(
+                    : const Text(
                         "  Price:Rs.210/-     ",
                         style: TextStyle(fontWeight: FontWeight.bold),
                       )
@@ -350,7 +369,7 @@ class _PanelWidgetState extends State<PanelWidget> {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
+            const Text(
               "Fixed Price",
               style: TextStyle(
                 fontSize: 18,

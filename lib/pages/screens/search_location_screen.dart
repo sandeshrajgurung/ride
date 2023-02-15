@@ -101,122 +101,122 @@ class _SearchLocationState extends State<SearchLocation> {
                             ],
                           );
                         })),
-                ListTile(
-                  visualDensity: VisualDensity(vertical: -2),
-                  // contentPadding: EdgeInsets.all(2),
-                  iconColor: Colors.black,
-                  textColor: Colors.black,
+                // ListTile(
+                //   visualDensity: VisualDensity(vertical: -2),
+                //   // contentPadding: EdgeInsets.all(2),
+                //   iconColor: Colors.black,
+                //   textColor: Colors.black,
 
-                  leading: SizedBox(
-                      height: double.infinity, child: Icon(Icons.home)),
-                  title: Text(
-                    "Home",
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                  subtitle: Text("Add address"),
-                  trailing: SizedBox(
-                    height: double.infinity,
-                    child: IconButton(
-                      onPressed: () {},
-                      icon: Icon(Icons.edit),
-                    ),
-                  ),
-                ),
-                ListTile(
-                  visualDensity: VisualDensity(vertical: -2),
-                  iconColor: Colors.black,
-                  textColor: Colors.black,
-                  leading: SizedBox(
-                      height: double.infinity, child: Icon(Icons.work)),
-                  title: Text(
-                    "Office",
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                  subtitle: Text("Add address"),
-                  trailing: SizedBox(
-                    height: double.infinity,
-                    child: IconButton(
-                      onPressed: () {},
-                      icon: Icon(Icons.edit),
-                    ),
-                  ),
-                ),
-                ListTile(
-                  visualDensity: VisualDensity(vertical: -2),
-                  iconColor: Colors.black,
-                  textColor: Colors.black,
-                  leading: SizedBox(
-                      height: double.infinity, child: Icon(Icons.school)),
-                  title: Text(
-                    "College",
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                  subtitle: Text("Add address"),
-                  trailing: SizedBox(
-                    height: double.infinity,
-                    child: IconButton(
-                      onPressed: () {},
-                      icon: Icon(Icons.edit),
-                    ),
-                  ),
-                ),
-                ListTile(
-                  visualDensity: VisualDensity(vertical: -2),
-                  iconColor: Colors.black,
-                  textColor: Colors.black,
-                  leading: SizedBox(
-                      height: double.infinity, child: Icon(Icons.favorite)),
-                  title: Text(
-                    "Other",
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                  subtitle: Text("Add address"),
-                  trailing: SizedBox(
-                    height: double.infinity,
-                    child: IconButton(
-                      onPressed: () {},
-                      icon: Icon(Icons.edit),
-                    ),
-                  ),
-                ),
-                ListTile(
-                  visualDensity: VisualDensity(vertical: -2),
-                  iconColor: Colors.black,
-                  textColor: Colors.black,
-                  leading: SizedBox(
-                      height: double.infinity, child: Icon(Icons.location_on)),
-                  title: Text(
-                    "Set on map",
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                  trailing: SizedBox(
-                    height: double.infinity,
-                    child: IconButton(
-                      onPressed: () {},
-                      icon: Icon(Icons.edit),
-                    ),
-                  ),
-                ),
-                ListTile(
-                  visualDensity: VisualDensity(vertical: -2),
-                  iconColor: Colors.black,
-                  textColor: Colors.black,
-                  leading: SizedBox(
-                      height: double.infinity,
-                      child: Icon(Icons.add_location_alt)),
-                  title: Text(
-                    "Add Missing Place",
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                  subtitle: Text("Add address"),
-                  trailing: SizedBox(
-                    height: double.infinity,
-                    child: IconButton(
-                      onPressed: () {},
-                      icon: Icon(Icons.edit),
-                    ),
-                  ),
-                ),
+                //   leading: SizedBox(
+                //       height: double.infinity, child: Icon(Icons.home)),
+                //   title: Text(
+                //     "Home",
+                //     style: TextStyle(fontWeight: FontWeight.bold),
+                //   ),
+                //   subtitle: Text("Add address"),
+                //   trailing: SizedBox(
+                //     height: double.infinity,
+                //     child: IconButton(
+                //       onPressed: () {},
+                //       icon: Icon(Icons.edit),
+                //     ),
+                //   ),
+                // ),
+                // ListTile(
+                //   visualDensity: VisualDensity(vertical: -2),
+                //   iconColor: Colors.black,
+                //   textColor: Colors.black,
+                //   leading: SizedBox(
+                //       height: double.infinity, child: Icon(Icons.work)),
+                //   title: Text(
+                //     "Office",
+                //     style: TextStyle(fontWeight: FontWeight.bold),
+                //   ),
+                //   subtitle: Text("Add address"),
+                //   trailing: SizedBox(
+                //     height: double.infinity,
+                //     child: IconButton(
+                //       onPressed: () {},
+                //       icon: Icon(Icons.edit),
+                //     ),
+                //   ),
+                // ),
+                // ListTile(
+                //   visualDensity: VisualDensity(vertical: -2),
+                //   iconColor: Colors.black,
+                //   textColor: Colors.black,
+                //   leading: SizedBox(
+                //       height: double.infinity, child: Icon(Icons.school)),
+                //   title: Text(
+                //     "College",
+                //     style: TextStyle(fontWeight: FontWeight.bold),
+                //   ),
+                //   subtitle: Text("Add address"),
+                //   trailing: SizedBox(
+                //     height: double.infinity,
+                //     child: IconButton(
+                //       onPressed: () {},
+                //       icon: Icon(Icons.edit),
+                //     ),
+                //   ),
+                // ),
+                // ListTile(
+                //   visualDensity: VisualDensity(vertical: -2),
+                //   iconColor: Colors.black,
+                //   textColor: Colors.black,
+                //   leading: SizedBox(
+                //       height: double.infinity, child: Icon(Icons.favorite)),
+                //   title: Text(
+                //     "Other",
+                //     style: TextStyle(fontWeight: FontWeight.bold),
+                //   ),
+                //   subtitle: Text("Add address"),
+                //   trailing: SizedBox(
+                //     height: double.infinity,
+                //     child: IconButton(
+                //       onPressed: () {},
+                //       icon: Icon(Icons.edit),
+                //     ),
+                //   ),
+                // ),
+                // ListTile(
+                //   visualDensity: VisualDensity(vertical: -2),
+                //   iconColor: Colors.black,
+                //   textColor: Colors.black,
+                //   leading: SizedBox(
+                //       height: double.infinity, child: Icon(Icons.location_on)),
+                //   title: Text(
+                //     "Set on map",
+                //     style: TextStyle(fontWeight: FontWeight.bold),
+                //   ),
+                //   trailing: SizedBox(
+                //     height: double.infinity,
+                //     child: IconButton(
+                //       onPressed: () {},
+                //       icon: Icon(Icons.edit),
+                //     ),
+                //   ),
+                // ),
+                // ListTile(
+                //   visualDensity: VisualDensity(vertical: -2),
+                //   iconColor: Colors.black,
+                //   textColor: Colors.black,
+                //   leading: SizedBox(
+                //       height: double.infinity,
+                //       child: Icon(Icons.add_location_alt)),
+                //   title: Text(
+                //     "Add Missing Place",
+                //     style: TextStyle(fontWeight: FontWeight.bold),
+                //   ),
+                //   subtitle: Text("Add address"),
+                //   trailing: SizedBox(
+                //     height: double.infinity,
+                //     child: IconButton(
+                //       onPressed: () {},
+                //       icon: Icon(Icons.edit),
+                //     ),
+                //   ),
+                // ),
               ],
             ),
           ),

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:sahara/pages/screens/confirm_booking.dart';
 import 'package:flutter_polyline_points/flutter_polyline_points.dart';
+import 'package:vibration/vibration.dart';
 
 class LocationScreen extends StatefulWidget {
   const LocationScreen({super.key});
@@ -13,6 +15,7 @@ class LocationScreen extends StatefulWidget {
 }
 
 class _LocationScreenState extends State<LocationScreen> {
+  bool isDragged = true;
   LatLng destination = const LatLng(27.749050, 85.345463);
 
   late GoogleMapController mapController;
@@ -49,6 +52,8 @@ class _LocationScreenState extends State<LocationScreen> {
   }
 
   getLocation() async {
+    await Geolocator.checkPermission();
+    await Geolocator.requestPermission();
     Position position = await Geolocator.getCurrentPosition(
         desiredAccuracy: LocationAccuracy.high);
     double lat = position.latitude;
@@ -114,26 +119,33 @@ class _LocationScreenState extends State<LocationScreen> {
                   myLocationEnabled: true,
                   zoomControlsEnabled: false,
                   initialCameraPosition: CameraPosition(
-                    target: _currentPosition!,
+                    target: destination,
                     zoom: 16.0,
                   ),
-                  polylines: {
-                    Polyline(
-                      polylineId: PolylineId("route"),
-                      points: polylineCoordinates,
-                    )
+                  onCameraIdle: () {
+                    Vibration.vibrate(duration: 50);
+                    
                   },
-                  markers: {
-                    Marker(
-                      markerId: const MarkerId('CurrentLocation'),
-                      position: _currentPosition!,
-                    ),
-                    Marker(
-                      markerId: const MarkerId('Destination'),
-                      position: destination,
-                    ),
-                  },
+                  
                 ),
+          Positioned(
+              top: MediaQuery.of(context).size.height * 0.35,
+              left: MediaQuery.of(context).size.width * 0.45,
+              child: Column(
+                children: [
+                  Image.asset(
+                    'lib/assets/drop_new.png',
+                    height: 45,
+                    width: 45,
+                  ),
+                  Container(
+                    height: 5,
+                    width: 5,
+                    decoration: BoxDecoration(
+                        color: Colors.black, shape: BoxShape.circle),
+                  ),
+                ],
+              )),
           DraggableScrollableSheet(
             initialChildSize: 0.31,
             minChildSize: 0,

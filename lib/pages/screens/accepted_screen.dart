@@ -102,16 +102,14 @@ class _AcceptRideState extends State<AcceptRide> {
                     },
                   ),
             Positioned(
-                top: 50,
+                top: 40,
                 left: 10,
-                child: IconButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  icon: Icon(
-                    Icons.grid_view_sharp,
-                    size: 35,
-                    color: Theme.of(context).primaryColor,
+                child: GestureDetector(
+                  onTap: () => Navigator.pop(context),
+                  child: Image.asset(
+                    'lib/assets/ic_more_revised.png',
+                    height: 55,
+                    width: 55,
                   ),
                 )),
             Positioned(

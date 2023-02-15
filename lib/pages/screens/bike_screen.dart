@@ -30,8 +30,11 @@ class _BikeRideState extends State<BikeRide> {
   }
 
   getLocation() async {
+    await Geolocator.checkPermission();
+    await Geolocator.requestPermission();
     Position position = await Geolocator.getCurrentPosition(
         desiredAccuracy: LocationAccuracy.high);
+
     double lat = position.latitude;
     double long = position.longitude;
 
@@ -63,7 +66,7 @@ class _BikeRideState extends State<BikeRide> {
                 : GoogleMap(
                     myLocationEnabled: true,
                     zoomControlsEnabled: false,
-                    myLocationButtonEnabled: true,
+                    myLocationButtonEnabled: false,
                     onMapCreated: _onMapCreated,
                     initialCameraPosition: CameraPosition(
                       target: _currentPosition!,
@@ -86,16 +89,14 @@ class _BikeRideState extends State<BikeRide> {
                   ),
 
             Positioned(
-                top: 50,
+                top: 40,
                 left: 10,
-                child: IconButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  icon: Icon(
-                    Icons.grid_view_sharp,
-                    size: 35,
-                    color: Theme.of(context).primaryColor,
+                child: GestureDetector(
+                  onTap: () => Navigator.pop(context),
+                  child: Image.asset(
+                    'lib/assets/ic_more_revised.png',
+                    height: 55,
+                    width: 55,
                   ),
                 )),
             Positioned(
@@ -109,7 +110,14 @@ class _BikeRideState extends State<BikeRide> {
                   children: [
                     SpeedDialChild(
                       labelStyle: TextStyle(color: Colors.white),
-                      onTap: () {},
+                      onTap: () async {
+                        Position pos = await Geolocator.getCurrentPosition();
+
+                        mapController.animateCamera(
+                            CameraUpdate.newCameraPosition(CameraPosition(
+                                target: LatLng(pos.latitude, pos.longitude),
+                                zoom: 14)));
+                      },
                       labelBackgroundColor: Theme.of(context).primaryColor,
                       child: Icon(Icons.refresh),
                       label: 'Refresh',
